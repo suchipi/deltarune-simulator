@@ -6,9 +6,9 @@
     "@hex-engine/2d": "^0.11.1"
   },
   "scripts": {
-    "start": "hex-engine-scripts dev",
-    "dev": "hex-engine-scripts dev",
-    "build": "hex-engine-scripts build",
+    "start": "npm run dev",
+    "dev": "hex-engine-scripts dev --title 'Deltarune Simulator'",
+    "build": "hex-engine-scripts build --title 'Deltarune Simulator'",
     "test": "hex-engine-scripts test"
   },
   "devDependencies": {
