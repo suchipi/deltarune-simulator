@@ -57,9 +57,6 @@ export default function Player(initialPosition: Vector) {
       const magnitude = Math.floor(speed * delta);
       movementVector.multiplyMutate(magnitude);
       position.addMutate(movementVector);
-
-      // keep pixel-aligned
-      position.roundDownMutate();
     }
 
     const animBefore = sprite.currentAnim;
@@ -106,6 +103,9 @@ export default function Player(initialPosition: Vector) {
       animBefore.pause();
       sprite.currentAnim.play();
     }
+
+    // keep pixel-aligned
+    position.roundDownMutate();
   });
 
   useDraw((context) => {
