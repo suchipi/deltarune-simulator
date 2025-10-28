@@ -10,22 +10,45 @@ import {
   Keyboard,
 } from "@hex-engine/2d";
 
-import placeholder from "./characters/placeholder.aseprite";
-import krisLightWorld from "./characters/kris-lightworld.aseprite";
-
-export default function Player(initialPosition: Vector) {
+export default function Player(
+  initialPosition: Vector,
+  asepriteData: AsepriteLoader.Data
+) {
   useType(Player);
 
   const position = initialPosition.clone();
 
-  const sprite = useNewComponent(() => Aseprite(krisLightWorld));
-  sprite.currentAnim = sprite.animations["down-idle"];
+  const sprite = useNewComponent(() => Aseprite(asepriteData));
+
+  const animations = {
+    down: {
+      idle: sprite.animations["down-idle"] || sprite.currentAnim,
+      walk: sprite.animations["down-walk"] || sprite.currentAnim,
+    },
+    left: {
+      idle: sprite.animations["left-idle"] || sprite.currentAnim,
+      walk: sprite.animations["left-walk"] || sprite.currentAnim,
+    },
+    right: {
+      idle: sprite.animations["right-idle"] || sprite.currentAnim,
+      walk: sprite.animations["right-walk"] || sprite.currentAnim,
+    },
+    up: {
+      idle: sprite.animations["up-idle"] || sprite.currentAnim,
+      walk: sprite.animations["up-walk"] || sprite.currentAnim,
+    },
+  };
+
+  sprite.currentAnim = animations.down.idle;
   sprite.currentAnim.play();
 
   const geometry = useNewComponent(() =>
     Geometry({
       shape: Polygon.rectangle(
-        new Vector(sprite.data.width, sprite.data.height)
+        new Vector(
+          roundToEven(sprite.data.width),
+          roundToEven(sprite.data.height)
+        )
       ),
       position,
     })
@@ -62,37 +85,37 @@ export default function Player(initialPosition: Vector) {
     const animBefore = sprite.currentAnim;
     switch (true) {
       case movementVector.y < 0: {
-        sprite.currentAnim = sprite.animations["up-walk"];
+        sprite.currentAnim = animations.up.walk;
         break;
       }
       case movementVector.y > 0: {
-        sprite.currentAnim = sprite.animations["down-walk"];
+        sprite.currentAnim = animations.down.walk;
         break;
       }
       case movementVector.x < 0: {
-        sprite.currentAnim = sprite.animations["left-walk"];
+        sprite.currentAnim = animations.left.walk;
         break;
       }
       case movementVector.x > 0: {
-        sprite.currentAnim = sprite.animations["right-walk"];
+        sprite.currentAnim = animations.right.walk;
         break;
       }
       default: {
         switch (animBefore) {
-          case sprite.animations["up-walk"]: {
-            sprite.currentAnim = sprite.animations["up-idle"];
+          case animations.up.walk: {
+            sprite.currentAnim = animations.up.idle;
             break;
           }
-          case sprite.animations["down-walk"]: {
-            sprite.currentAnim = sprite.animations["down-idle"];
+          case animations.down.walk: {
+            sprite.currentAnim = animations.down.idle;
             break;
           }
-          case sprite.animations["left-walk"]: {
-            sprite.currentAnim = sprite.animations["left-idle"];
+          case animations.left.walk: {
+            sprite.currentAnim = animations.left.idle;
             break;
           }
-          case sprite.animations["right-walk"]: {
-            sprite.currentAnim = sprite.animations["right-idle"];
+          case animations.right.walk: {
+            sprite.currentAnim = animations.right.idle;
             break;
           }
         }
@@ -115,4 +138,8 @@ export default function Player(initialPosition: Vector) {
   return {
     movementVector,
   };
+}
+
+function roundToEven(num: number) {
+  return num % 2 === 0 ? num : num + 1;
 }

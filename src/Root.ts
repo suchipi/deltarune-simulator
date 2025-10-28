@@ -9,6 +9,8 @@ import Player from "./Player";
 import Logo from "./Logo";
 import DramaticSound from "./DramaticSound";
 
+import krisLightWorld from "./characters/kris-lightworld.aseprite";
+
 export default function Root() {
   useType(Root);
 
@@ -24,5 +26,5 @@ export default function Root() {
   useNewComponent(() => DramaticSound());
 
   useChild(() => Logo(new Vector(0, 0)));
-  useChild(() => Player(canvasCenter));
+  useChild(() => Player(canvasCenter, krisLightWorld));
 }
