@@ -9,6 +9,7 @@ import {
   useUpdate,
   Keyboard,
 } from "@hex-engine/2d";
+import { roundToEven } from "./utils/round-to-even";
 
 export default function Player(
   initialPosition: Vector,
@@ -138,8 +139,4 @@ export default function Player(
   return {
     movementVector,
   };
-}
-
-function roundToEven(num: number) {
-  return num % 2 === 0 ? num : num + 1;
 }

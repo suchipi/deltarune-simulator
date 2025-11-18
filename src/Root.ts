@@ -6,10 +6,10 @@ import {
   Vector,
 } from "@hex-engine/2d";
 import Player from "./Player";
-import Logo from "./Logo";
 import DramaticSound from "./DramaticSound";
 
 import krisLightWorld from "./characters/kris-lightworld.aseprite";
+import RoomKrisHallway from "./rooms/krishallway/RoomKrisHallway";
 
 export default function Root() {
   useType(Root);
@@ -25,6 +25,9 @@ export default function Root() {
 
   useNewComponent(() => DramaticSound());
 
-  useChild(() => Logo(new Vector(0, 0)));
-  useChild(() => Player(canvasCenter, krisLightWorld));
+  useChild(() =>
+    RoomKrisHallway(canvasCenter, () => {
+      useChild(() => Player(new Vector(0, 0), krisLightWorld));
+    })
+  );
 }

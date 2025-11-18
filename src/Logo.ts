@@ -14,6 +14,6 @@ export default function Logo(position: Vector) {
   const image = useNewComponent(() => Image({ url: smeltarune }));
 
   useDraw((context) => {
-    image.draw(context, { x: position.x, y: position.y });
+    image.draw(context, position);
   });
 }
