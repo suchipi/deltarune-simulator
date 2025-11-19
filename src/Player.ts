@@ -8,6 +8,7 @@ import {
   Aseprite,
   useUpdate,
   Keyboard,
+  Physics,
 } from "@hex-engine/2d";
 import { roundToEven } from "./utils/round-to-even";
 
@@ -59,7 +60,10 @@ export default function Player(
 
   const speed = 0.15;
 
-  let movementVector = new Vector(0, 0);
+  const body = useNewComponent(() => Physics.Body(geometry));
+
+  const zeroVector = new Vector(0, 0);
+  const movementVector = new Vector(0, 0);
   useUpdate((delta) => {
     movementVector.x = 0;
     movementVector.y = 0;
@@ -80,7 +84,15 @@ export default function Player(
     if (movementVector.x !== 0 || movementVector.y !== 0) {
       const magnitude = Math.floor(speed * delta);
       movementVector.multiplyMutate(magnitude);
-      position.addMutate(movementVector);
+
+      // Before physics:
+      // position.addMutate(movementVector);
+      // After physics:
+      body.setVelocity(movementVector);
+      body.setAngularVelocity(0);
+    } else {
+      body.setVelocity(zeroVector);
+      body.setAngularVelocity(0);
     }
 
     const animBefore = sprite.currentAnim;

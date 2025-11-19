@@ -4,6 +4,7 @@ import {
   useChild,
   Canvas,
   Vector,
+  Physics,
 } from "@hex-engine/2d";
 import Player from "./Player";
 import DramaticSound from "./DramaticSound";
@@ -18,12 +19,20 @@ export default function Root() {
   canvas.fullscreen({ pixelZoom: 4 });
   canvas.setPixelated(true);
 
+  useNewComponent(() =>
+    Physics.Engine({
+      debugDraw: true,
+      enableSleeping: true,
+      gravity: new Vector(0, 0),
+    })
+  );
+
   const canvasCenter = new Vector(
     canvas.element.width / 2,
     canvas.element.height / 2
   ).roundDownMutate();
 
-  useNewComponent(() => DramaticSound());
+  // useNewComponent(() => DramaticSound());
 
   useChild(() =>
     RoomKrisHallway(canvasCenter, () => {
