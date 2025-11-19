@@ -36,7 +36,9 @@ export default function Root() {
 
   useChild(() =>
     RoomKrisHallway(canvasCenter, () => {
-      useChild(() => Player(new Vector(0, 0), krisLightWorld));
+      useChild(() =>
+        Player(new Vector(0, 0), krisLightWorld, new Vector(0, 20))
+      );
     })
   );
 }

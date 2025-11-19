@@ -19,9 +19,6 @@ export default function PlayerBody(
 
   const position = initialPosition.clone();
 
-  // Convert relative position to world position, for physics engine
-  useEntityTransforms().matrixForWorldPosition().transformPointMutate(position);
-
   // Keep pixel-aligned
   position.x = roundToEven(position.x);
   position.y = roundToEven(position.y);

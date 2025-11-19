@@ -7,6 +7,7 @@ import {
   useDraw,
   Aseprite,
   useUpdate,
+  useEntityTransforms,
 } from "@hex-engine/2d";
 import { roundToEven } from "./utils/round-to-even";
 
@@ -100,7 +101,20 @@ export default function PlayerRenderer(
     }
   });
 
+  // Work around bug in engine relating to physics bodies and entity position and stuff
+  const inverseMatrix = useEntityTransforms()
+    .matrixForWorldPosition()
+    .inverseMutate();
+
   useDraw((context) => {
+    context.transform(
+      inverseMatrix.a,
+      inverseMatrix.b,
+      inverseMatrix.c,
+      inverseMatrix.d,
+      inverseMatrix.e,
+      inverseMatrix.f
+    );
     sprite.draw(context);
   });
 }

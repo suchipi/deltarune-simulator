@@ -13,8 +13,8 @@ import PlayerRenderer from "./PlayerRenderer";
 export default function Player(
   initialPosition: Vector,
   asepriteData: AsepriteLoader.Data,
-  shape: Shape = Polygon.rectangle(16, 16),
-  originOffset: Vector = new Vector(0, 0)
+  originOffset: Vector = new Vector(0, 0),
+  shape: Shape = Polygon.rectangle(16, 16)
 ) {
   useType(Player);
 
