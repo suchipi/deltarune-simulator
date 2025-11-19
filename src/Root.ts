@@ -7,7 +7,7 @@ import {
   Physics,
 } from "@hex-engine/2d";
 import Player from "./Player";
-import DramaticSound from "./DramaticSound";
+// import DramaticSound from "./DramaticSound";
 
 import krisLightWorld from "./characters/kris-lightworld.aseprite";
 import RoomKrisHallway from "./rooms/krishallway/RoomKrisHallway";
@@ -16,7 +16,7 @@ export default function Root() {
   useType(Root);
 
   const canvas = useNewComponent(() => Canvas({ backgroundColor: "black" }));
-  canvas.fullscreen({ pixelZoom: 4 });
+  canvas.fullscreen({ pixelZoom: 2 });
   canvas.setPixelated(true);
 
   useNewComponent(() =>
