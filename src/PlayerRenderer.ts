@@ -7,7 +7,6 @@ import {
   useDraw,
   Aseprite,
   useUpdate,
-  useEntityTransforms,
 } from "@hex-engine/2d";
 import { roundToEven } from "./utils/round-to-even";
 
@@ -102,8 +101,11 @@ export default function PlayerRenderer(
     }
   });
 
-  useDraw((context) => {
-    context.translate(originOffset.x, originOffset.y);
-    sprite.draw(context);
-  });
+  useDraw(
+    (context) => {
+      context.translate(originOffset.x, originOffset.y);
+      sprite.draw(context);
+    },
+    { roundToNearestPixel: true }
+  );
 }

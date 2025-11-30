@@ -6,9 +6,7 @@ import {
   useUpdate,
   Physics,
   Shape,
-  useEntityTransforms,
 } from "@hex-engine/2d";
-import { roundToEven } from "./utils/round-to-even";
 
 export default function PlayerBody(
   position: Vector,
@@ -16,10 +14,6 @@ export default function PlayerBody(
   shape: Shape
 ) {
   useType(PlayerBody);
-
-  // Keep pixel-aligned
-  position.x = roundToEven(position.x);
-  position.y = roundToEven(position.y);
 
   const geometry = useNewComponent(() =>
     Geometry({
