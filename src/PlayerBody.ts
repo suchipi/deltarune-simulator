@@ -11,13 +11,11 @@ import {
 import { roundToEven } from "./utils/round-to-even";
 
 export default function PlayerBody(
-  initialPosition: Vector,
+  position: Vector,
   movementVector: Vector,
   shape: Shape
 ) {
   useType(PlayerBody);
-
-  const position = initialPosition.clone();
 
   // Keep pixel-aligned
   position.x = roundToEven(position.x);

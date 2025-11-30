@@ -6,16 +6,13 @@ import {
   Vector,
   useDraw,
   Image,
-  useChild,
 } from "@hex-engine/2d";
 import mainUrl from "./main.png";
 import mirrorUrl from "./mirror.png";
 import Wall from "../../Wall";
+import { useRootChild } from "../../useRootChild";
 
-export default function RoomKrisHallway(
-  position: Vector,
-  childCallback: () => void
-) {
+export default function RoomKrisHallway(position: Vector) {
   useType(RoomKrisHallway);
 
   const mainImage = useNewComponent(() => Image({ url: mainUrl }));
@@ -37,15 +34,13 @@ export default function RoomKrisHallway(
   const roomTopLeftOffset = new Vector(
     -geometry.shape.width / 2,
     -geometry.shape.height / 2
-  );
+  ).addMutate(position);
 
   function makeWall(x: number, y: number, width: number, height: number) {
-    useChild(() =>
+    useRootChild(() =>
       Wall(roomTopLeftOffset.addX(x).addYMutate(y), new Vector(width, height))
     );
   }
 
   makeWall(49, 140, 20, 69);
-
-  childCallback();
 }

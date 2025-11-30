@@ -3,15 +3,15 @@ import {
   useNewComponent,
   Polygon,
   Vector,
-  useChild,
   Shape,
 } from "@hex-engine/2d";
 import PlayerBody from "./PlayerBody";
 import PlayerControls from "./PlayerControls";
 import PlayerRenderer from "./PlayerRenderer";
+import { useRootChild } from "./useRootChild";
 
 export default function Player(
-  initialPosition: Vector,
+  position: Vector,
   asepriteData: AsepriteLoader.Data,
   originOffset: Vector = new Vector(0, 0),
   shape: Shape = Polygon.rectangle(16, 16)
@@ -19,6 +19,8 @@ export default function Player(
   useType(Player);
 
   const { movementVector } = useNewComponent(() => PlayerControls(0.15));
-  useNewComponent(() => PlayerBody(initialPosition, movementVector, shape));
-  useChild(() => PlayerRenderer(asepriteData, movementVector, originOffset));
+  useNewComponent(() => PlayerBody(position, movementVector, shape));
+  useRootChild(() =>
+    PlayerRenderer(asepriteData, movementVector, position, originOffset)
+  );
 }

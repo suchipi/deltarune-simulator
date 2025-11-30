@@ -14,6 +14,7 @@ import { roundToEven } from "./utils/round-to-even";
 export default function PlayerRenderer(
   asepriteData: AsepriteLoader.Data,
   movementVector: Vector,
+  position: Vector,
   originOffset: Vector = new Vector(0, 0)
 ) {
   useType(PlayerRenderer);
@@ -50,7 +51,7 @@ export default function PlayerRenderer(
           roundToEven(sprite.data.height)
         )
       ),
-      position: originOffset,
+      position: position,
     })
   );
 
@@ -101,20 +102,8 @@ export default function PlayerRenderer(
     }
   });
 
-  // Work around bug in engine relating to physics bodies and entity position and stuff
-  const inverseMatrix = useEntityTransforms()
-    .matrixForWorldPosition()
-    .inverseMutate();
-
   useDraw((context) => {
-    context.transform(
-      inverseMatrix.a,
-      inverseMatrix.b,
-      inverseMatrix.c,
-      inverseMatrix.d,
-      inverseMatrix.e,
-      inverseMatrix.f
-    );
+    context.translate(originOffset.x, originOffset.y);
     sprite.draw(context);
   });
 }
