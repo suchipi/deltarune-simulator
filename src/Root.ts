@@ -11,6 +11,7 @@ import { useRootChild } from "./useRootChild";
 
 import krisLightWorld from "./characters/kris-lightworld.aseprite";
 import RoomKrisHallway from "./rooms/krishallway/RoomKrisHallway";
+import { Camera } from "./Camera";
 
 export default function Root() {
   useType(Root);
@@ -32,10 +33,16 @@ export default function Root() {
     canvas.element.height / 2
   ).roundDownMutate();
 
+  useNewComponent(() => Camera(canvasCenter.multiply(-1)));
+
   // useNewComponent(() => DramaticSound());
 
-  useRootChild(() => RoomKrisHallway(canvasCenter));
+  useRootChild(() => RoomKrisHallway(new Vector(0, 0)));
   useRootChild(() =>
-    Player(canvasCenter.clone(), krisLightWorld, new Vector(0, -10))
+    Player(new Vector(0, 0), krisLightWorld, new Vector(-1, -10))
   );
+
+  return {
+    canvasCenter,
+  };
 }

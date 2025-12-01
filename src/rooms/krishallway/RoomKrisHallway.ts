@@ -6,11 +6,11 @@ import {
   Vector,
   useDraw,
   Image,
+  useEntityTransforms,
 } from "@hex-engine/2d";
 import mainUrl from "./main.png";
 import mirrorUrl from "./mirror.png";
-import Wall from "../../Wall";
-import { useRootChild } from "../../useRootChild";
+import { makeWallBuilder } from "../../Wall";
 
 export default function RoomKrisHallway(position: Vector) {
   useType(RoomKrisHallway);
@@ -28,19 +28,23 @@ export default function RoomKrisHallway(position: Vector) {
   const zeroVector = new Vector(0, 0);
   useDraw((context) => {
     mirrorImage.draw(context, zeroVector);
+    // TODO player reflections go here
     mainImage.draw(context, zeroVector);
   });
 
-  const roomTopLeftOffset = new Vector(
-    -geometry.shape.width / 2,
-    -geometry.shape.height / 2
-  ).addMutate(position);
+  const roomTopLeftOffset = useEntityTransforms()
+    .matrixForDrawPosition(false)
+    .transformPoint(new Vector(0, 0));
 
-  function makeWall(x: number, y: number, width: number, height: number) {
-    useRootChild(() =>
-      Wall(roomTopLeftOffset.addX(x).addYMutate(y), new Vector(width, height))
-    );
-  }
+  const wallBuilder = makeWallBuilder(roomTopLeftOffset);
 
-  makeWall(49, 140, 20, 69);
+  wallBuilder.makeWall(40, 108, 60, 177);
+  wallBuilder.makeWall(57, 166, 479, 184);
+  wallBuilder.makeWall(479, 123, 504, 167);
+  wallBuilder.makeWall(457, 108, 476, 127);
+  wallBuilder.makeWall(61, 109, 281, 126);
+  wallBuilder.makeWall(172, 114, 223, 134);
+  wallBuilder.makeWall(239, 113, 257, 131);
+  wallBuilder.makeWall(314, 107, 418, 127);
+  wallBuilder.makeWall(344, 110, 385, 132);
 }
