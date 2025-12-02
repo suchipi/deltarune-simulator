@@ -11,6 +11,7 @@ import {
 import mainUrl from "./main.png";
 import mirrorUrl from "./mirror.png";
 import { makeWallBuilder } from "../../Wall";
+import { PlayerSpawn } from "../../PlayerSpawn";
 
 export default function RoomKrisHallway(position: Vector) {
   useType(RoomKrisHallway);
@@ -47,4 +48,12 @@ export default function RoomKrisHallway(position: Vector) {
   wallBuilder.makeWall(239, 113, 257, 131);
   wallBuilder.makeWall(314, 107, 418, 127);
   wallBuilder.makeWall(344, 110, 385, 132);
+
+  const playerSpawn = useNewComponent(() =>
+    PlayerSpawn(roomTopLeftOffset.addX(251).addYMutate(161))
+  );
+
+  return {
+    playerSpawn,
+  };
 }
