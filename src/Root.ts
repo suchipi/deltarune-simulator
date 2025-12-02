@@ -14,6 +14,7 @@ import RoomKrisHallway from "./rooms/krishallway/RoomKrisHallway";
 import { Camera } from "./Camera";
 import { DebugLine } from "./DebugLine";
 import { DebugPoint } from "./DebugPoint";
+import RoomKrisRoom from "./rooms/krisroom/RoomKrisRoom";
 
 export default function Root() {
   useType(Root);
@@ -44,7 +45,8 @@ export default function Root() {
 
   // useNewComponent(() => DramaticSound());
 
-  const room = useChild(() => RoomKrisHallway());
+  // const room = useChild(() => RoomKrisHallway());
+  const room = useChild(() => RoomKrisRoom());
 
   camera.position.subtractMutate(room.rootComponent.bounds.divide(2));
 
