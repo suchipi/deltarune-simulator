@@ -4,11 +4,11 @@ import {
   Polygon,
   Vector,
   Shape,
+  useChild,
 } from "@hex-engine/2d";
 import PlayerBody from "./PlayerBody";
 import PlayerControls from "./PlayerControls";
 import PlayerRenderer from "./PlayerRenderer";
-import { useRootChild } from "./useRootChild";
 
 export default function Player(
   position: Vector,
@@ -20,7 +20,5 @@ export default function Player(
 
   const { movementVector } = useNewComponent(() => PlayerControls(0.15));
   useNewComponent(() => PlayerBody(position, movementVector, shape));
-  useRootChild(() =>
-    PlayerRenderer(asepriteData, movementVector, position, originOffset)
-  );
+  useChild(() => PlayerRenderer(asepriteData, movementVector, originOffset));
 }

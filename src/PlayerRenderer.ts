@@ -11,7 +11,6 @@ import { roundToEven } from "./utils/round-to-even";
 export default function PlayerRenderer(
   asepriteData: AsepriteLoader.Data,
   movementVector: Vector,
-  position: Vector,
   originOffset: Vector = new Vector(0, 0)
 ) {
   useType(PlayerRenderer);
@@ -97,7 +96,6 @@ export default function PlayerRenderer(
 
   useDraw(
     (context) => {
-      context.translate(position.x, position.y);
       context.translate(-bounds.x / 2, -bounds.y / 2);
       context.translate(originOffset.x, originOffset.y);
       sprite.draw(context);

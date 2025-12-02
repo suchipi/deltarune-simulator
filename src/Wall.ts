@@ -5,8 +5,8 @@ import {
   Polygon,
   Vector,
   Physics,
+  useChild,
 } from "@hex-engine/2d";
-import { useRootChild } from "./useRootChild";
 
 export default function Wall(position: Vector, size: Vector) {
   useType(Wall);
@@ -33,7 +33,7 @@ export function makeWallBuilder(roomTopLeftOffset: Vector) {
       bottomRightX: number,
       bottomRightY: number
     ) {
-      useRootChild(() =>
+      useChild(() =>
         Wall(
           roomTopLeftOffset.addX(topLeftX).addYMutate(topLeftY),
           new Vector(bottomRightX - topLeftX, bottomRightY - topLeftY)

@@ -8,7 +8,6 @@ import {
 } from "@hex-engine/2d";
 import Player from "./Player";
 // import DramaticSound from "./DramaticSound";
-import { useRootChild } from "./useRootChild";
 
 import krisLightWorld from "./characters/kris-lightworld.aseprite";
 import RoomKrisHallway from "./rooms/krishallway/RoomKrisHallway";
@@ -45,11 +44,11 @@ export default function Root() {
 
   // useNewComponent(() => DramaticSound());
 
-  const room = useRootChild(() => RoomKrisHallway());
+  const room = useChild(() => RoomKrisHallway());
 
   camera.position.subtractMutate(room.rootComponent.bounds.divide(2));
 
-  useRootChild(() =>
+  useChild(() =>
     Player(
       room.rootComponent.playerSpawn.position.clone(),
       krisLightWorld,
