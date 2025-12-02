@@ -1,8 +1,6 @@
 import {
   useType,
   useNewComponent,
-  Geometry,
-  Polygon,
   Vector,
   useDraw,
   Aseprite,
@@ -42,16 +40,12 @@ export default function PlayerRenderer(
   sprite.currentAnim = animations.down.idle;
   sprite.currentAnim.play();
 
-  const geometry = useNewComponent(() =>
-    Geometry({
-      shape: Polygon.rectangle(
-        new Vector(
-          roundToEven(sprite.data.width),
-          roundToEven(sprite.data.height)
-        )
-      ),
-      position: position,
-    })
+  // avoiding using Geometry component as it puts this transform into the
+  // hierarchy. I want parent/child hierarchy without transform hierarchy, for
+  // physics engine reasons. I need to make this better in hex-engine.
+  const bounds = new Vector(
+    roundToEven(sprite.data.width),
+    roundToEven(sprite.data.height)
   );
 
   useUpdate((delta) => {
@@ -103,6 +97,8 @@ export default function PlayerRenderer(
 
   useDraw(
     (context) => {
+      context.translate(position.x, position.y);
+      context.translate(-bounds.x / 2, -bounds.y / 2);
       context.translate(originOffset.x, originOffset.y);
       sprite.draw(context);
     },

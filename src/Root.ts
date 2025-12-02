@@ -33,13 +33,21 @@ export default function Root() {
     canvas.element.height / 2
   ).roundDownMutate();
 
-  useNewComponent(() => Camera(canvasCenter.multiply(-1)));
+  const camera = useNewComponent(() => Camera(new Vector(0, 0)));
 
   // useNewComponent(() => DramaticSound());
 
-  useRootChild(() => RoomKrisHallway(new Vector(0, 0)));
+  const room = useRootChild(() => RoomKrisHallway());
+
+  // TODO why not centered? need a nice grid thing for debugging
+  camera.position.mutateInto(room.rootComponent.bounds.divide(2));
+
   useRootChild(() =>
-    Player(new Vector(0, 0), krisLightWorld, new Vector(-1, -10))
+    Player(
+      room.rootComponent.playerSpawn.position.clone(),
+      krisLightWorld,
+      new Vector(-1, -10)
+    )
   );
 
   return {

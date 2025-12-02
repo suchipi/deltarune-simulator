@@ -1,30 +1,22 @@
 import {
   useType,
   useNewComponent,
-  Geometry,
-  Polygon,
   Vector,
   useDraw,
   Image,
-  useEntityTransforms,
 } from "@hex-engine/2d";
 import mainUrl from "./main.png";
 import mirrorUrl from "./mirror.png";
 import { makeWallBuilder } from "../../Wall";
 import { PlayerSpawn } from "../../PlayerSpawn";
 
-export default function RoomKrisHallway(position: Vector) {
+export default function RoomKrisHallway() {
   useType(RoomKrisHallway);
 
   const mainImage = useNewComponent(() => Image({ url: mainUrl }));
   const mirrorImage = useNewComponent(() => Image({ url: mirrorUrl }));
 
-  const geometry = useNewComponent(() =>
-    Geometry({
-      shape: Polygon.rectangle(new Vector(540, 240)),
-      position,
-    })
-  );
+  const bounds = new Vector(540, 240);
 
   const zeroVector = new Vector(0, 0);
   useDraw((context) => {
@@ -33,11 +25,7 @@ export default function RoomKrisHallway(position: Vector) {
     mainImage.draw(context, zeroVector);
   });
 
-  const roomTopLeftOffset = useEntityTransforms()
-    .matrixForDrawPosition(false)
-    .transformPoint(new Vector(0, 0));
-
-  const wallBuilder = makeWallBuilder(roomTopLeftOffset);
+  const wallBuilder = makeWallBuilder(zeroVector);
 
   wallBuilder.makeWall(40, 108, 60, 177);
   wallBuilder.makeWall(57, 166, 479, 184);
@@ -49,11 +37,10 @@ export default function RoomKrisHallway(position: Vector) {
   wallBuilder.makeWall(314, 107, 418, 127);
   wallBuilder.makeWall(344, 110, 385, 132);
 
-  const playerSpawn = useNewComponent(() =>
-    PlayerSpawn(roomTopLeftOffset.addX(251).addYMutate(161))
-  );
+  const playerSpawn = useNewComponent(() => PlayerSpawn(new Vector(251, 161)));
 
   return {
+    bounds,
     playerSpawn,
   };
 }
