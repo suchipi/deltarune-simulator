@@ -9,6 +9,8 @@ import mainUrl from "./main.png";
 import mirrorUrl from "./mirror.png";
 import { makeWallBuilder } from "../../Wall";
 import { PlayerSpawn } from "../../PlayerSpawn";
+import { makeSensorBuilder } from "../../Sensor";
+import { RoomComponentReturn } from "../RoomComponent";
 
 export default function RoomKrisHallway() {
   useType(RoomKrisHallway);
@@ -18,14 +20,13 @@ export default function RoomKrisHallway() {
 
   const bounds = new Vector(540, 240);
 
-  const zeroVector = new Vector(0, 0);
   useDraw((context) => {
-    mirrorImage.draw(context, zeroVector);
+    mirrorImage.draw(context, Vector.ZERO);
     // TODO player reflections go here
-    mainImage.draw(context, zeroVector);
+    mainImage.draw(context, Vector.ZERO);
   });
 
-  const wallBuilder = makeWallBuilder(zeroVector);
+  const wallBuilder = makeWallBuilder(Vector.ZERO);
 
   wallBuilder.makeWall(40, 108, 60, 177);
   wallBuilder.makeWall(57, 166, 479, 184);
@@ -37,10 +38,19 @@ export default function RoomKrisHallway() {
   wallBuilder.makeWall(314, 107, 418, 127);
   wallBuilder.makeWall(344, 110, 385, 132);
 
+  const sensorBuilder = makeSensorBuilder(Vector.ZERO);
+
+  sensorBuilder.makeSensor(289, 104, 308, 123, {
+    onStart(info) {
+      alert("yeah");
+    },
+  });
+
   const playerSpawn = useNewComponent(() => PlayerSpawn(new Vector(251, 161)));
 
   return {
     bounds,
     playerSpawn,
-  };
+    pointsOfInterest: {},
+  } satisfies RoomComponentReturn;
 }

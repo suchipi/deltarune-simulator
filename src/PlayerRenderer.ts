@@ -5,13 +5,14 @@ import {
   useDraw,
   Aseprite,
   useUpdate,
+  ReadOnlyVector,
 } from "@hex-engine/2d";
 import { roundToEven } from "./utils/round-to-even";
 
 export default function PlayerRenderer(
   asepriteData: AsepriteLoader.Data,
   movementVector: Vector,
-  originOffset: Vector = new Vector(0, 0)
+  originOffset: ReadOnlyVector = Vector.ZERO
 ) {
   useType(PlayerRenderer);
 

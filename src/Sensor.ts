@@ -6,6 +6,7 @@ import {
   Vector,
   Physics,
   useChild,
+  ReadOnlyVector,
 } from "@hex-engine/2d";
 
 export type SensorCallbacks = {
@@ -45,9 +46,9 @@ export default function Sensor(
   }
 }
 
-export function makeSensorBuilder(roomTopLeftOffset: Vector) {
+export function makeSensorBuilder(roomTopLeftOffset: ReadOnlyVector) {
   return {
-    makeWall(
+    makeSensor(
       topLeftX: number,
       topLeftY: number,
       bottomRightX: number,

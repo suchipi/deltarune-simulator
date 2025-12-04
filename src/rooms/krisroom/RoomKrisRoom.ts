@@ -9,6 +9,7 @@ import bgUrl from "./bg.png";
 import fgUrl from "./fg.png";
 import { makeWallBuilder } from "../../Wall";
 import { PlayerSpawn } from "../../PlayerSpawn";
+import { RoomComponentReturn } from "../RoomComponent";
 
 export default function RoomKrisRoom() {
   useType(RoomKrisRoom);
@@ -18,14 +19,13 @@ export default function RoomKrisRoom() {
 
   const bounds = new Vector(320, 240);
 
-  const zeroVector = new Vector(0, 0);
   useDraw((context) => {
-    bgImage.draw(context, zeroVector);
+    bgImage.draw(context, Vector.ZERO);
     // TODO players go here
-    fgImage.draw(context, zeroVector);
+    fgImage.draw(context, Vector.ZERO);
   });
 
-  const wallBuilder = makeWallBuilder(zeroVector);
+  const wallBuilder = makeWallBuilder(Vector.ZERO);
 
   wallBuilder.makeWall(20, 20, 299, 39);
   wallBuilder.makeWall(20, 39, 39, 219);
@@ -48,5 +48,6 @@ export default function RoomKrisRoom() {
   return {
     bounds,
     playerSpawn,
-  };
+    pointsOfInterest: {},
+  } satisfies RoomComponentReturn;
 }

@@ -6,6 +6,7 @@ import {
   Vector,
   Physics,
   useChild,
+  ReadOnlyVector,
 } from "@hex-engine/2d";
 
 export default function Wall(position: Vector, size: Vector) {
@@ -25,7 +26,7 @@ export default function Wall(position: Vector, size: Vector) {
   );
 }
 
-export function makeWallBuilder(roomTopLeftOffset: Vector) {
+export function makeWallBuilder(roomTopLeftOffset: ReadOnlyVector) {
   return {
     makeWall(
       topLeftX: number,
