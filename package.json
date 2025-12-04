@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@hex-engine/2d": "^0.11.1"
+    "@hex-engine/2d": "^0.11.2"
   },
   "scripts": {
     "start": "npm run dev",
@@ -12,7 +12,7 @@
     "test": "hex-engine-scripts test"
   },
   "devDependencies": {
-    "hex-engine-scripts": "^0.11.1",
+    "hex-engine-scripts": "^0.11.2",
     "typescript": "^5.9.3"
   }
 }
