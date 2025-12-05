@@ -5,6 +5,9 @@ import { makeWallBuilder } from "../../Wall";
 import { RoomComponentReturn } from "../RoomComponent";
 import { BackgroundLayer } from "../../useBackgroundDraw";
 import { ForegroundLayer } from "../../useForegroundDraw";
+import { useRoomRouter } from "../RoomRouter";
+import { makeSensorBuilder } from "../../Sensor";
+import RoomKrisHallway from "../krishallway/RoomKrisHallway";
 
 export default function RoomKrisRoom() {
   useType(RoomKrisRoom);
@@ -44,10 +47,21 @@ export default function RoomKrisRoom() {
   // TODO: this bed collider needs to be on sometimes and off other times
   wallBuilder.makeWall(232, 101, 281, 150);
 
+  const roomRouter = useRoomRouter();
+
+  const sensorBuilder = makeSensorBuilder(Vector.ZERO);
+
+  sensorBuilder.makeSensor(155, 230, 174, 239, {
+    onStart(info) {
+      roomRouter.goTo(RoomKrisHallway, "outsideKrisRoomDoor");
+    },
+  });
+
   return {
     bounds,
     pointsOfInterest: {
       playerSpawn: new Vector(255, 130),
+      enteredSouth: new Vector(164, 217),
     },
   } satisfies RoomComponentReturn;
 }

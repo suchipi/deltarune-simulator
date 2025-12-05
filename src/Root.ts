@@ -5,19 +5,14 @@ import {
   Vector,
   Physics,
   useChild,
-  useUpdate,
 } from "@hex-engine/2d";
 import Player from "./Player";
+import krisLightWorld from "./characters/kris-lightworld.aseprite";
 // import DramaticSound from "./DramaticSound";
-import RoomKrisHallway from "./rooms/krishallway/RoomKrisHallway";
 import { Camera } from "./Camera";
 import { RoomRouter } from "./rooms/RoomRouter";
-
-import krisLightWorld from "./characters/kris-lightworld.aseprite";
-import DrawOrder, {
-  useCanvasDrawOrderSort,
-} from "@hex-engine/2d/src/Canvas/DrawOrder";
 import { drawOrderSort } from "./drawOrderSort";
+import RoomKrisRoom from "./rooms/krisroom/RoomKrisRoom";
 
 export default function Root() {
   useType(Root);
@@ -30,7 +25,7 @@ export default function Root() {
 
   useNewComponent(() =>
     Physics.Engine({
-      debugDraw: true,
+      // debugDraw: true,
       enableSleeping: true,
       gravity: new Vector(0, 0),
     })
@@ -39,7 +34,9 @@ export default function Root() {
   // useNewComponent(() => DramaticSound());
 
   const player = useChild(() =>
-    Player(new Vector(0, 0), krisLightWorld, new Vector(-1, -10))
+    // initial player position matches playerSpawn position in first room so
+    // player doesn't teleport on first frame
+    Player(new Vector(255, 130), krisLightWorld, new Vector(-1, -10))
   );
 
   const camera = useNewComponent(() => Camera(player.rootComponent.position));
@@ -50,5 +47,5 @@ export default function Root() {
   const router = useNewComponent(() =>
     RoomRouter(player.rootComponent.setPosition)
   );
-  router.goTo(RoomKrisHallway, "playerSpawn");
+  router.goTo(RoomKrisRoom, "playerSpawn");
 }

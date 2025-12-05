@@ -47,7 +47,7 @@ export default function RoomKrisHallway() {
 
   sensorBuilder.makeSensor(289, 104, 308, 123, {
     onStart(info) {
-      roomRouter.goTo(RoomKrisRoom, "playerSpawn");
+      roomRouter.goTo(RoomKrisRoom, "enteredSouth");
     },
   });
 
@@ -55,6 +55,7 @@ export default function RoomKrisHallway() {
     bounds,
     pointsOfInterest: {
       playerSpawn: new Vector(251, 161),
+      outsideKrisRoomDoor: new Vector(297, 133),
     },
   } satisfies RoomComponentReturn;
 }
