@@ -1,28 +1,31 @@
-import {
-  useType,
-  useNewComponent,
-  Vector,
-  useDraw,
-  Image,
-} from "@hex-engine/2d";
+import { useType, useNewComponent, Vector, Image } from "@hex-engine/2d";
 import mainUrl from "./main.png";
 import mirrorUrl from "./mirror.png";
 import { makeWallBuilder } from "../../Wall";
-import { PlayerSpawn } from "../../PlayerSpawn";
 import { makeSensorBuilder } from "../../Sensor";
 import { RoomComponentReturn } from "../RoomComponent";
+import { useBackgroundDraw } from "../../useBackgroundDraw";
+import { useForegroundDraw } from "../../useForegroundDraw";
+import { useRoomRouter } from "../RoomRouter";
+import RoomKrisRoom from "../krisroom/RoomKrisRoom";
 
 export default function RoomKrisHallway() {
   useType(RoomKrisHallway);
 
+  // TODO: all pixels in mainImage are semi-transparent. They need to be clamped
+  // to opaque
   const mainImage = useNewComponent(() => Image({ url: mainUrl }));
   const mirrorImage = useNewComponent(() => Image({ url: mirrorUrl }));
 
   const bounds = new Vector(540, 240);
 
-  useDraw((context) => {
+  useBackgroundDraw((context) => {
     mirrorImage.draw(context, Vector.ZERO);
-    // TODO player reflections go here
+  });
+
+  // TODO: player reflections
+
+  useForegroundDraw((context) => {
     mainImage.draw(context, Vector.ZERO);
   });
 
@@ -38,19 +41,20 @@ export default function RoomKrisHallway() {
   wallBuilder.makeWall(314, 107, 418, 127);
   wallBuilder.makeWall(344, 110, 385, 132);
 
+  const roomRouter = useRoomRouter();
+
   const sensorBuilder = makeSensorBuilder(Vector.ZERO);
 
   sensorBuilder.makeSensor(289, 104, 308, 123, {
     onStart(info) {
-      alert("yeah");
+      roomRouter.goTo(RoomKrisRoom, "playerSpawn");
     },
   });
 
-  const playerSpawn = useNewComponent(() => PlayerSpawn(new Vector(251, 161)));
-
   return {
     bounds,
-    playerSpawn,
-    pointsOfInterest: {},
+    pointsOfInterest: {
+      playerSpawn: new Vector(251, 161),
+    },
   } satisfies RoomComponentReturn;
 }

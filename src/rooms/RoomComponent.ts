@@ -2,10 +2,8 @@ import { Vector } from "@hex-engine/2d";
 
 export type RoomComponent = () => {
   bounds: Vector;
-  playerSpawn: {
-    position: Vector;
-  };
   pointsOfInterest: {
+    playerSpawn: Vector;
     [key: string]: Vector;
   };
 };

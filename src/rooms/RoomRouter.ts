@@ -1,5 +1,4 @@
 import {
-  Component,
   Entity,
   useCallbackAsCurrent,
   useChild,
@@ -8,12 +7,11 @@ import {
   Vector,
 } from "@hex-engine/2d";
 import { RoomComponent } from "./RoomComponent";
-import { Camera } from "../Camera";
 
 export type RoomRouterApi = {
   goTo<Room extends RoomComponent>(
     room: Room,
-    pointOfInterest?: null | keyof ReturnType<Room>["pointsOfInterest"]
+    pointOfInterest: keyof ReturnType<Room>["pointsOfInterest"]
   ): void;
   currentRoom: (Entity & { rootComponent: ReturnType<RoomComponent> }) | null;
 };
@@ -38,9 +36,7 @@ export function RoomRouter(
       const poisMap = currentRoom.rootComponent.pointsOfInterest;
 
       let poiPos: Vector | null = null;
-      if (pointOfInterest == null) {
-        poiPos = currentRoom.rootComponent.playerSpawn.position;
-      } else if (Object.hasOwn(poisMap, pointOfInterest)) {
+      if (Object.hasOwn(poisMap, pointOfInterest)) {
         // @ts-ignore
         poiPos = poisMap[pointOfInterest];
       }

@@ -1,5 +1,6 @@
 import {
   Polygon,
+  ReadOnlyVector,
   useCanvasSize,
   useInspectorHoverOutline,
   useRawDraw,
@@ -7,7 +8,7 @@ import {
   Vector,
 } from "@hex-engine/2d";
 
-export function Camera(position: Vector) {
+export function Camera(position: ReadOnlyVector) {
   useType(Camera);
 
   const { canvasSize } = useCanvasSize();

@@ -1,15 +1,10 @@
-import {
-  useType,
-  useNewComponent,
-  Vector,
-  useDraw,
-  Image,
-} from "@hex-engine/2d";
+import { useType, useNewComponent, Vector, Image } from "@hex-engine/2d";
 import bgUrl from "./bg.png";
 import fgUrl from "./fg.png";
 import { makeWallBuilder } from "../../Wall";
-import { PlayerSpawn } from "../../PlayerSpawn";
 import { RoomComponentReturn } from "../RoomComponent";
+import { BackgroundLayer } from "../../useBackgroundDraw";
+import { ForegroundLayer } from "../../useForegroundDraw";
 
 export default function RoomKrisRoom() {
   useType(RoomKrisRoom);
@@ -19,11 +14,17 @@ export default function RoomKrisRoom() {
 
   const bounds = new Vector(320, 240);
 
-  useDraw((context) => {
-    bgImage.draw(context, Vector.ZERO);
-    // TODO players go here
-    fgImage.draw(context, Vector.ZERO);
-  });
+  useNewComponent(() =>
+    BackgroundLayer((context) => {
+      bgImage.draw(context, Vector.ZERO);
+    })
+  );
+
+  useNewComponent(() =>
+    ForegroundLayer((context) => {
+      fgImage.draw(context, Vector.ZERO);
+    })
+  );
 
   const wallBuilder = makeWallBuilder(Vector.ZERO);
 
@@ -43,11 +44,10 @@ export default function RoomKrisRoom() {
   // TODO: this bed collider needs to be on sometimes and off other times
   wallBuilder.makeWall(232, 101, 281, 150);
 
-  const playerSpawn = useNewComponent(() => PlayerSpawn(new Vector(255, 130)));
-
   return {
     bounds,
-    playerSpawn,
-    pointsOfInterest: {},
+    pointsOfInterest: {
+      playerSpawn: new Vector(255, 130),
+    },
   } satisfies RoomComponentReturn;
 }
