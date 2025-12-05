@@ -8,14 +8,13 @@ import {
 } from "@hex-engine/2d";
 import Player from "./Player";
 // import DramaticSound from "./DramaticSound";
-
-import krisLightWorld from "./characters/kris-lightworld.aseprite";
 import RoomKrisHallway from "./rooms/krishallway/RoomKrisHallway";
 import { Camera } from "./Camera";
-import { DebugLine } from "./DebugLine";
-import { DebugPoint } from "./DebugPoint";
-import RoomKrisRoom from "./rooms/krisroom/RoomKrisRoom";
+// import { DebugLine } from "./DebugLine";
+// import { DebugPoint } from "./DebugPoint";
 import { RoomRouter } from "./rooms/RoomRouter";
+
+import krisLightWorld from "./characters/kris-lightworld.aseprite";
 
 export default function Root() {
   useType(Root);
@@ -43,11 +42,12 @@ export default function Root() {
   // useChild(() => DebugPoint(new Vector(0, 0)));
 
   const camera = useNewComponent(() => Camera(canvasCenter));
-  // camera.position.subtractMutate(room.rootComponent.bounds.divide(2));
 
   // useNewComponent(() => DramaticSound());
 
   const playerPosition = new Vector(0, 0);
+
+  // camera.setFollowTarget(playerPosition);
 
   const router = useNewComponent(() => RoomRouter(playerPosition));
 
@@ -55,7 +55,7 @@ export default function Root() {
     Player(playerPosition, krisLightWorld, new Vector(-1, -10))
   );
 
-  router.api.goTo(RoomKrisHallway);
+  router.goTo(RoomKrisHallway);
 
   return {
     canvasCenter,

@@ -8,6 +8,7 @@ import {
   Vector,
 } from "@hex-engine/2d";
 import { RoomComponent } from "./RoomComponent";
+import { Camera } from "../Camera";
 
 export type RoomRouterApi = {
   goTo<Room extends RoomComponent>(
@@ -19,7 +20,7 @@ export type RoomRouterApi = {
 
 export function RoomRouter(
   playerPosition: Vector
-  // cameraPosition: Vector,
+  // camera: Entity & { rootComponent: Component & ReturnType<typeof Camera> }
 ) {
   useType(RoomRouter);
 
@@ -52,18 +53,13 @@ export function RoomRouter(
         );
       }
       playerPosition.mutateInto(poiPos);
-
-      // const camera = useNewComponent(() => Camera(canvasCenter));
-      // camera.position.subtractMutate(room.rootComponent.bounds.divide(2));
     },
-  };
-
-  return {
-    api,
     get currentRoom() {
       return currentRoom;
     },
   };
+
+  return api;
 }
 
 export function useRoomRouter(): RoomRouterApi {
@@ -75,7 +71,7 @@ export function useRoomRouter(): RoomRouterApi {
   }
 
   return {
-    goTo: useCallbackAsCurrent(roomRouter.api.goTo),
+    goTo: useCallbackAsCurrent(roomRouter.goTo),
     get currentRoom() {
       return roomRouter.currentRoom;
     },
