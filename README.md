@@ -1,4 +1,6 @@
-# @hex-engine/2d game
+# Deltarune Simulator
+
+Reimplementing the non-battle parts of Deltarune for fun, with the long-term goal of making a little multiplayer chat lobby thing out of it.
 
 This repo was created using `create-hex-engine-game`.
 
