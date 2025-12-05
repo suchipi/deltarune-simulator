@@ -20,10 +20,15 @@ export default function Player(
   useType(Player);
 
   const { movementVector } = useNewComponent(() => PlayerControls(0.15));
-  useNewComponent(() => PlayerBody(position, movementVector, shape));
+  const playerBody = useNewComponent(() =>
+    PlayerBody(position, movementVector, shape)
+  );
   useChild(() => PlayerRenderer(asepriteData, movementVector, originOffset));
 
   return {
-    position,
+    position: position as ReadOnlyVector,
+    setPosition(newPosition: Vector) {
+      playerBody.body.setPosition(newPosition);
+    },
   };
 }

@@ -28,4 +28,8 @@ export default function PlayerBody(
     body.setVelocity(movementVector);
     body.setAngularVelocity(0);
   });
+
+  return {
+    body,
+  };
 }

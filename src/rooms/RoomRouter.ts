@@ -19,7 +19,7 @@ export type RoomRouterApi = {
 };
 
 export function RoomRouter(
-  playerPosition: Vector
+  setPlayerPosition: (newPosition: Vector) => void
   // camera: Entity & { rootComponent: Component & ReturnType<typeof Camera> }
 ) {
   useType(RoomRouter);
@@ -52,7 +52,7 @@ export function RoomRouter(
           )} has no point of interest ${JSON.stringify(pointOfInterest)}!`
         );
       }
-      playerPosition.mutateInto(poiPos);
+      setPlayerPosition(poiPos);
     },
     get currentRoom() {
       return currentRoom;

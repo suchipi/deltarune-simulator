@@ -5,13 +5,12 @@ import {
   Vector,
   Physics,
   useChild,
+  useUpdate,
 } from "@hex-engine/2d";
 import Player from "./Player";
 // import DramaticSound from "./DramaticSound";
 import RoomKrisHallway from "./rooms/krishallway/RoomKrisHallway";
 import { Camera } from "./Camera";
-// import { DebugLine } from "./DebugLine";
-// import { DebugPoint } from "./DebugPoint";
 import { RoomRouter } from "./rooms/RoomRouter";
 
 import krisLightWorld from "./characters/kris-lightworld.aseprite";
@@ -31,33 +30,20 @@ export default function Root() {
     })
   );
 
-  const canvasCenter = new Vector(
-    canvas.element.width / 2,
-    canvas.element.height / 2
-  ).roundDownMutate();
-
-  // World origin indicator for debugging
-  // useChild(() => DebugLine(new Vector(-20, 0), new Vector(20, 0)));
-  // useChild(() => DebugLine(new Vector(0, -20), new Vector(0, 20)));
-  // useChild(() => DebugPoint(new Vector(0, 0)));
-
-  const camera = useNewComponent(() => Camera(canvasCenter));
+  const camera = useNewComponent(() => Camera(Vector.ZERO.clone()));
 
   // useNewComponent(() => DramaticSound());
 
-  const playerPosition = new Vector(0, 0);
-
-  // camera.setFollowTarget(playerPosition);
-
-  const router = useNewComponent(() => RoomRouter(playerPosition));
-
   const player = useChild(() =>
-    Player(playerPosition, krisLightWorld, new Vector(-1, -10))
+    Player(new Vector(0, 0), krisLightWorld, new Vector(-1, -10))
   );
 
+  const router = useNewComponent(() =>
+    RoomRouter(player.rootComponent.setPosition)
+  );
   router.goTo(RoomKrisHallway);
 
-  return {
-    canvasCenter,
-  };
+  useUpdate(() => {
+    camera.position.mutateInto(player.rootComponent.position);
+  });
 }
