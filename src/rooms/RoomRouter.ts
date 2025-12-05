@@ -26,30 +26,32 @@ export function RoomRouter(
     | (Entity & { rootComponent: ReturnType<RoomComponent> })
     | null = null;
 
+  function goTo(room, pointOfInterest) {
+    if (currentRoom != null) {
+      currentRoom.destroy();
+    }
+
+    currentRoom = useChild(room);
+    const poisMap = currentRoom.rootComponent.pointsOfInterest;
+
+    let poiPos: Vector | null = null;
+    if (Object.hasOwn(poisMap, pointOfInterest)) {
+      // @ts-ignore
+      poiPos = poisMap[pointOfInterest];
+    }
+
+    if (poiPos == null) {
+      throw new Error(
+        `Room ${JSON.stringify(
+          room.name
+        )} has no point of interest ${JSON.stringify(pointOfInterest)}!`
+      );
+    }
+    setPlayerPosition(poiPos);
+  }
+
   const api: RoomRouterApi = {
-    goTo(room, pointOfInterest) {
-      if (currentRoom != null) {
-        currentRoom.destroy();
-      }
-
-      currentRoom = useChild(room);
-      const poisMap = currentRoom.rootComponent.pointsOfInterest;
-
-      let poiPos: Vector | null = null;
-      if (Object.hasOwn(poisMap, pointOfInterest)) {
-        // @ts-ignore
-        poiPos = poisMap[pointOfInterest];
-      }
-
-      if (poiPos == null) {
-        throw new Error(
-          `Room ${JSON.stringify(
-            room.name
-          )} has no point of interest ${JSON.stringify(pointOfInterest)}!`
-        );
-      }
-      setPlayerPosition(poiPos);
-    },
+    goTo: useCallbackAsCurrent(goTo),
     get currentRoom() {
       return currentRoom;
     },
@@ -67,7 +69,7 @@ export function useRoomRouter(): RoomRouterApi {
   }
 
   return {
-    goTo: useCallbackAsCurrent(roomRouter.goTo),
+    goTo: roomRouter.goTo,
     get currentRoom() {
       return roomRouter.currentRoom;
     },
