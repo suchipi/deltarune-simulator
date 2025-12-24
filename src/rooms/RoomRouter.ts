@@ -26,7 +26,10 @@ export function RoomRouter(
     | (Entity & { rootComponent: ReturnType<RoomComponent> })
     | null = null;
 
-  function goTo(room, pointOfInterest) {
+  function goTo<Room extends RoomComponent>(
+    room: Room,
+    pointOfInterest: keyof ReturnType<Room>["pointsOfInterest"]
+  ) {
     if (currentRoom != null) {
       currentRoom.destroy();
     }

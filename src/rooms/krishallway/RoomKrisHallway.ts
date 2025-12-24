@@ -21,11 +21,7 @@ export default function RoomKrisHallway() {
 
   useBackgroundDraw((context) => {
     mirrorImage.draw(context, Vector.ZERO);
-  });
-
-  // TODO: player reflections
-
-  useForegroundDraw((context) => {
+    // TODO: player reflections
     mainImage.draw(context, Vector.ZERO);
   });
 

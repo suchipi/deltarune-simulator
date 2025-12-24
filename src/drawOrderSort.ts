@@ -18,6 +18,7 @@ export function drawOrderSort(entities: Array<Entity>): Array<Component> {
   const cameras: Array<Component> = [];
   const backgrounds: Array<Component> = [];
   const objects: Array<Component> = [];
+  const foregrounds: Array<Component> = [];
   const debugOverlays: Array<Component> = [];
 
   const storageForIsDebugOverlay = Array.from(useRootEntity().components).find(
@@ -33,7 +34,7 @@ export function drawOrderSort(entities: Array<Entity>): Array<Component> {
       } else if (component.type === BackgroundLayer) {
         backgrounds.push(component);
       } else if (component.type === ForegroundLayer) {
-        backgrounds.push(component);
+        foregrounds.push(component);
       } else if (isDebugOverlay(component, storageForIsDebugOverlay)) {
         debugOverlays.push(component);
       } else {
@@ -42,5 +43,11 @@ export function drawOrderSort(entities: Array<Entity>): Array<Component> {
     }
   }
 
-  return [...cameras, ...backgrounds, ...objects, ...debugOverlays];
+  return [
+    ...cameras,
+    ...backgrounds,
+    ...objects,
+    ...foregrounds,
+    ...debugOverlays,
+  ];
 }

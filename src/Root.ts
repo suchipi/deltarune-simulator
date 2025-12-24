@@ -25,7 +25,7 @@ export default function Root() {
 
   useNewComponent(() =>
     Physics.Engine({
-      // debugDraw: true,
+      debugDraw: true,
       enableSleeping: true,
       gravity: new Vector(0, 0),
     })
