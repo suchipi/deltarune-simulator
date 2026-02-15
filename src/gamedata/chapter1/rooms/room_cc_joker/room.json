@@ -1,0 +1,347 @@
+{
+  "name": "room_cc_joker",
+  "width": 640,
+  "height": 480,
+  "canvasWidth": 640,
+  "canvasHeight": 480,
+  "canvasOffsetX": 0,
+  "canvasOffsetY": 0,
+  "speed": 0,
+  "persistent": false,
+  "backgroundColor": "#000000",
+  "drawBackgroundColor": false,
+  "isGMS2": true,
+  "isGMS2_3": true,
+  "enableViews": true,
+  "gridWidth": 16,
+  "gridHeight": 16,
+  "layers": [
+    {
+      "name": "Compatibility_Colour",
+      "type": "Background",
+      "depth": 2147483600,
+      "layerId": 854,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "backgroundData": {
+        "sprite": null,
+        "visible": true,
+        "foreground": false,
+        "stretch": false,
+        "tiledHorizontally": false,
+        "tiledVertically": false,
+        "color": "#000000",
+        "firstFrame": 0,
+        "animationSpeed": 15,
+        "animationSpeedType": "FPS"
+      }
+    },
+    {
+      "name": "Compatibility_Instances_Depth_600000",
+      "type": "Instances",
+      "depth": 600000,
+      "layerId": 853,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 40,
+          "y": 0,
+          "objectName": "obj_jokerbg_triangle_real",
+          "instanceID": 102956,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_10000",
+      "type": "Instances",
+      "depth": 10000,
+      "layerId": 852,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 440,
+          "y": 160,
+          "objectName": "obj_jokerbattleevent",
+          "instanceID": 102955,
+          "scaleX": 2,
+          "scaleY": 2,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_0",
+      "type": "Instances",
+      "depth": 0,
+      "layerId": 851,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 0,
+          "y": 0,
+          "objectName": "obj_darkcontroller",
+          "instanceID": 102952,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 40,
+          "y": 240,
+          "objectName": "obj_markerA",
+          "instanceID": 102953,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 0,
+          "y": 240,
+          "objectName": "obj_doorB",
+          "instanceID": 102954,
+          "scaleX": 1,
+          "scaleY": 4,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_-20",
+      "type": "Instances",
+      "depth": -20,
+      "layerId": 850,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 40,
+          "y": 240,
+          "objectName": "obj_mainchara",
+          "instanceID": 102951,
+          "scaleX": 2.222222,
+          "scaleY": 2.105263,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "gameObjects": [
+    {
+      "x": 40,
+      "y": 240,
+      "objectName": "obj_mainchara",
+      "instanceID": 102951,
+      "scaleX": 2.222222,
+      "scaleY": 2.105263,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "objectName": "obj_darkcontroller",
+      "instanceID": 102952,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 40,
+      "y": 0,
+      "objectName": "obj_jokerbg_triangle_real",
+      "instanceID": 102956,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 40,
+      "y": 240,
+      "objectName": "obj_markerA",
+      "instanceID": 102953,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 0,
+      "y": 240,
+      "objectName": "obj_doorB",
+      "instanceID": 102954,
+      "scaleX": 1,
+      "scaleY": 4,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 440,
+      "y": 160,
+      "objectName": "obj_jokerbattleevent",
+      "instanceID": 102955,
+      "scaleX": 2,
+      "scaleY": 2,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    }
+  ],
+  "views": [
+    {
+      "enabled": true,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 640,
+      "viewHeight": 480,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 640,
+      "portHeight": 480,
+      "borderX": 160,
+      "borderY": 240,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    }
+  ]
+}

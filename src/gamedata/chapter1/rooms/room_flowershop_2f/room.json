@@ -1,0 +1,986 @@
+{
+  "name": "room_flowershop_2f",
+  "width": 320,
+  "height": 240,
+  "canvasWidth": 320,
+  "canvasHeight": 256,
+  "canvasOffsetX": 0,
+  "canvasOffsetY": 0,
+  "speed": 0,
+  "persistent": false,
+  "backgroundColor": "#000000",
+  "drawBackgroundColor": false,
+  "isGMS2": true,
+  "isGMS2_3": true,
+  "enableViews": true,
+  "gridWidth": 16,
+  "gridHeight": 16,
+  "layers": [
+    {
+      "name": "Compatibility_Colour",
+      "type": "Background",
+      "depth": 2147483600,
+      "layerId": 197,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "backgroundData": {
+        "sprite": null,
+        "visible": true,
+        "foreground": false,
+        "stretch": false,
+        "tiledHorizontally": false,
+        "tiledVertically": false,
+        "color": "#000000",
+        "firstFrame": 0,
+        "animationSpeed": 15,
+        "animationSpeedType": "FPS"
+      }
+    },
+    {
+      "name": "Compatibility_Background_0_bg_flowershop_f1",
+      "type": "Background",
+      "depth": 2147483500,
+      "layerId": 196,
+      "visible": false,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "backgroundData": {
+        "sprite": "bg_flowershop_f1",
+        "visible": true,
+        "foreground": false,
+        "stretch": false,
+        "tiledHorizontally": true,
+        "tiledVertically": true,
+        "color": "#FFFFFF",
+        "firstFrame": 0,
+        "animationSpeed": 15,
+        "animationSpeedType": "FPS"
+      }
+    },
+    {
+      "name": "Compatibility_Background_1_bg_flowershop_f2",
+      "type": "Background",
+      "depth": 2147483400,
+      "layerId": 195,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "backgroundData": {
+        "sprite": "bg_flowershop_f2",
+        "visible": true,
+        "foreground": false,
+        "stretch": false,
+        "tiledHorizontally": true,
+        "tiledVertically": true,
+        "color": "#FFFFFF",
+        "firstFrame": 0,
+        "animationSpeed": 15,
+        "animationSpeedType": "FPS"
+      }
+    },
+    {
+      "name": "Compatibility_Instances_Depth_800000",
+      "type": "Instances",
+      "depth": 800000,
+      "layerId": 194,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 255,
+          "y": 175,
+          "objectName": "obj_flowershop_event",
+          "instanceID": 100619,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_100",
+      "type": "Instances",
+      "depth": 100,
+      "layerId": 193,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 60,
+          "y": 220,
+          "objectName": "obj_solidblock",
+          "instanceID": 100606,
+          "scaleX": 10,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 300,
+          "y": 60,
+          "objectName": "obj_solidblock",
+          "instanceID": 100607,
+          "scaleX": 1,
+          "scaleY": 9,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 0,
+          "y": 60,
+          "objectName": "obj_solidblock",
+          "instanceID": 100608,
+          "scaleX": 1,
+          "scaleY": 9,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 16,
+          "y": 62,
+          "objectName": "obj_solidblock",
+          "instanceID": 100609,
+          "scaleX": 6,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 140,
+          "y": 40,
+          "objectName": "obj_solidblock",
+          "instanceID": 100610,
+          "scaleX": 2,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 180,
+          "y": 70,
+          "objectName": "obj_solidblock",
+          "instanceID": 100611,
+          "scaleX": 6,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 20,
+          "y": 80,
+          "objectName": "obj_solidblock",
+          "instanceID": 100612,
+          "scaleX": 2.79,
+          "scaleY": 1.421053,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 240,
+          "y": 70,
+          "objectName": "obj_solidblock",
+          "instanceID": 100613,
+          "scaleX": 3,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 95,
+          "y": 120,
+          "objectName": "obj_solidblock",
+          "instanceID": 100614,
+          "scaleX": 1.2,
+          "scaleY": 3.368421,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 115,
+          "y": 120,
+          "objectName": "obj_solidblock",
+          "instanceID": 100615,
+          "scaleX": 4.16,
+          "scaleY": 1.2,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 192,
+          "y": 120,
+          "objectName": "obj_solidblock",
+          "instanceID": 100616,
+          "scaleX": 1.15,
+          "scaleY": 3.263158,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 180,
+          "y": 55,
+          "objectName": "obj_solidblock",
+          "instanceID": 100617,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 80,
+          "y": 82,
+          "objectName": "obj_solidblock",
+          "instanceID": 100618,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_10",
+      "type": "Instances",
+      "depth": 10,
+      "layerId": 192,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 0,
+          "y": 0,
+          "objectName": "obj_overworldc",
+          "instanceID": 100605,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_0",
+      "type": "Instances",
+      "depth": 0,
+      "layerId": 191,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 20,
+          "y": 235,
+          "objectName": "obj_doorB",
+          "instanceID": 100586,
+          "scaleX": 2,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 260,
+          "y": 235,
+          "objectName": "obj_doorB",
+          "instanceID": 100587,
+          "scaleX": 2,
+          "scaleY": 1.052632,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 30,
+          "y": 195,
+          "objectName": "obj_markerA",
+          "instanceID": 100588,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 270,
+          "y": 195,
+          "objectName": "obj_markerA",
+          "instanceID": 100589,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 145,
+          "y": 105,
+          "objectName": "obj_npc_sign",
+          "instanceID": 100590,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 115,
+          "y": 105,
+          "objectName": "obj_npc_sign",
+          "instanceID": 100591,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 173,
+          "y": 105,
+          "objectName": "obj_npc_sign",
+          "instanceID": 100592,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 95,
+          "y": 120,
+          "objectName": "obj_npc_sign",
+          "instanceID": 100593,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 192,
+          "y": 120,
+          "objectName": "obj_npc_sign",
+          "instanceID": 100594,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 95,
+          "y": 145,
+          "objectName": "obj_npc_sign",
+          "instanceID": 100595,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 193,
+          "y": 145,
+          "objectName": "obj_npc_sign",
+          "instanceID": 100596,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 25,
+          "y": 145,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100597,
+          "scaleX": 1.842105,
+          "scaleY": 1.5,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 25,
+          "y": 85,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100598,
+          "scaleX": 2,
+          "scaleY": 1.315789,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 77,
+          "y": 82,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100599,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 195,
+          "y": 65,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100600,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 225,
+          "y": 50,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100601,
+          "scaleX": 1.578947,
+          "scaleY": 1.842105,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 265,
+          "y": 65,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100602,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 250,
+          "y": 125,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100603,
+          "scaleX": 2.25,
+          "scaleY": 3.421053,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 145,
+          "y": 40,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100604,
+          "scaleX": 1.578947,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_-20",
+      "type": "Instances",
+      "depth": -20,
+      "layerId": 190,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 30,
+          "y": 195,
+          "objectName": "obj_mainchara",
+          "instanceID": 100585,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "gameObjects": [
+    {
+      "x": 30,
+      "y": 195,
+      "objectName": "obj_mainchara",
+      "instanceID": 100585,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "objectName": "obj_overworldc",
+      "instanceID": 100605,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 60,
+      "y": 220,
+      "objectName": "obj_solidblock",
+      "instanceID": 100606,
+      "scaleX": 10,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 300,
+      "y": 60,
+      "objectName": "obj_solidblock",
+      "instanceID": 100607,
+      "scaleX": 1,
+      "scaleY": 9,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 0,
+      "y": 60,
+      "objectName": "obj_solidblock",
+      "instanceID": 100608,
+      "scaleX": 1,
+      "scaleY": 9,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 62,
+      "objectName": "obj_solidblock",
+      "instanceID": 100609,
+      "scaleX": 6,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 140,
+      "y": 40,
+      "objectName": "obj_solidblock",
+      "instanceID": 100610,
+      "scaleX": 2,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 180,
+      "y": 70,
+      "objectName": "obj_solidblock",
+      "instanceID": 100611,
+      "scaleX": 6,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 20,
+      "y": 80,
+      "objectName": "obj_solidblock",
+      "instanceID": 100612,
+      "scaleX": 2.79,
+      "scaleY": 1.421053,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 240,
+      "y": 70,
+      "objectName": "obj_solidblock",
+      "instanceID": 100613,
+      "scaleX": 3,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 95,
+      "y": 120,
+      "objectName": "obj_solidblock",
+      "instanceID": 100614,
+      "scaleX": 1.2,
+      "scaleY": 3.368421,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 115,
+      "y": 120,
+      "objectName": "obj_solidblock",
+      "instanceID": 100615,
+      "scaleX": 4.16,
+      "scaleY": 1.2,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 192,
+      "y": 120,
+      "objectName": "obj_solidblock",
+      "instanceID": 100616,
+      "scaleX": 1.15,
+      "scaleY": 3.263158,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 20,
+      "y": 235,
+      "objectName": "obj_doorB",
+      "instanceID": 100586,
+      "scaleX": 2,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 260,
+      "y": 235,
+      "objectName": "obj_doorB",
+      "instanceID": 100587,
+      "scaleX": 2,
+      "scaleY": 1.052632,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 30,
+      "y": 195,
+      "objectName": "obj_markerA",
+      "instanceID": 100588,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 270,
+      "y": 195,
+      "objectName": "obj_markerA",
+      "instanceID": 100589,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 145,
+      "y": 105,
+      "objectName": "obj_npc_sign",
+      "instanceID": 100590,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 115,
+      "y": 105,
+      "objectName": "obj_npc_sign",
+      "instanceID": 100591,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 173,
+      "y": 105,
+      "objectName": "obj_npc_sign",
+      "instanceID": 100592,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 95,
+      "y": 120,
+      "objectName": "obj_npc_sign",
+      "instanceID": 100593,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 192,
+      "y": 120,
+      "objectName": "obj_npc_sign",
+      "instanceID": 100594,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 95,
+      "y": 145,
+      "objectName": "obj_npc_sign",
+      "instanceID": 100595,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 193,
+      "y": 145,
+      "objectName": "obj_npc_sign",
+      "instanceID": 100596,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 25,
+      "y": 145,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100597,
+      "scaleX": 1.842105,
+      "scaleY": 1.5,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 25,
+      "y": 85,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100598,
+      "scaleX": 2,
+      "scaleY": 1.315789,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 77,
+      "y": 82,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100599,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 195,
+      "y": 65,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100600,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 225,
+      "y": 50,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100601,
+      "scaleX": 1.578947,
+      "scaleY": 1.842105,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 265,
+      "y": 65,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100602,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 250,
+      "y": 125,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100603,
+      "scaleX": 2.25,
+      "scaleY": 3.421053,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 145,
+      "y": 40,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100604,
+      "scaleX": 1.578947,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 255,
+      "y": 175,
+      "objectName": "obj_flowershop_event",
+      "instanceID": 100619,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 180,
+      "y": 55,
+      "objectName": "obj_solidblock",
+      "instanceID": 100617,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 80,
+      "y": 82,
+      "objectName": "obj_solidblock",
+      "instanceID": 100618,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    }
+  ],
+  "views": [
+    {
+      "enabled": true,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 320,
+      "viewHeight": 240,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 640,
+      "portHeight": 320,
+      "borderX": 160,
+      "borderY": 240,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": "obj_mainchara"
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    }
+  ]
+}

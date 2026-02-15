@@ -1,0 +1,1083 @@
+{
+  "name": "room_alphysclass",
+  "width": 320,
+  "height": 240,
+  "canvasWidth": 320,
+  "canvasHeight": 240,
+  "canvasOffsetX": 0,
+  "canvasOffsetY": 0,
+  "speed": 0,
+  "persistent": false,
+  "backgroundColor": "#000000",
+  "drawBackgroundColor": false,
+  "isGMS2": true,
+  "isGMS2_3": true,
+  "enableViews": true,
+  "gridWidth": 16,
+  "gridHeight": 16,
+  "layers": [
+    {
+      "name": "Compatibility_Colour",
+      "type": "Background",
+      "depth": 2147483600,
+      "layerId": 236,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "backgroundData": {
+        "sprite": null,
+        "visible": true,
+        "foreground": false,
+        "stretch": false,
+        "tiledHorizontally": false,
+        "tiledVertically": false,
+        "color": "#000000",
+        "firstFrame": 0,
+        "animationSpeed": 15,
+        "animationSpeedType": "FPS"
+      }
+    },
+    {
+      "name": "Compatibility_Background_0_bg_alphysclass",
+      "type": "Background",
+      "depth": 2147483500,
+      "layerId": 235,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "backgroundData": {
+        "sprite": "bg_alphysclass",
+        "visible": true,
+        "foreground": false,
+        "stretch": false,
+        "tiledHorizontally": true,
+        "tiledVertically": true,
+        "color": "#FFFFFF",
+        "firstFrame": 0,
+        "animationSpeed": 15,
+        "animationSpeedType": "FPS"
+      }
+    },
+    {
+      "name": "Compatibility_Instances_Depth_100",
+      "type": "Instances",
+      "depth": 100,
+      "layerId": 234,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 69,
+          "y": 123,
+          "objectName": "obj_solidblock",
+          "instanceID": 100768,
+          "scaleX": 1.894737,
+          "scaleY": 0.8,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 69,
+          "y": 154,
+          "objectName": "obj_solidblock",
+          "instanceID": 100769,
+          "scaleX": 1.9,
+          "scaleY": 0.75,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 68,
+          "y": 188,
+          "objectName": "obj_solidblock",
+          "instanceID": 100770,
+          "scaleX": 1.947368,
+          "scaleY": 0.7,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 139,
+          "y": 187,
+          "objectName": "obj_solidblock",
+          "instanceID": 100771,
+          "scaleX": 1.89,
+          "scaleY": 0.75,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 139,
+          "y": 154,
+          "objectName": "obj_solidblock",
+          "instanceID": 100772,
+          "scaleX": 1.9,
+          "scaleY": 0.75,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 139,
+          "y": 123,
+          "objectName": "obj_solidblock",
+          "instanceID": 100773,
+          "scaleX": 1.894737,
+          "scaleY": 0.7894737,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 206,
+          "y": 123,
+          "objectName": "obj_solidblock",
+          "instanceID": 100774,
+          "scaleX": 1.95,
+          "scaleY": 0.7894737,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 206,
+          "y": 154,
+          "objectName": "obj_solidblock",
+          "instanceID": 100775,
+          "scaleX": 1.947368,
+          "scaleY": 0.75,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 206,
+          "y": 186,
+          "objectName": "obj_solidblock",
+          "instanceID": 100776,
+          "scaleX": 1.95,
+          "scaleY": 0.8,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 101,
+          "y": 89,
+          "objectName": "obj_solidblock",
+          "instanceID": 100777,
+          "scaleX": 4.631579,
+          "scaleY": 0.7894737,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 18,
+          "y": 23,
+          "objectName": "obj_solidblock",
+          "instanceID": 100778,
+          "scaleX": 1,
+          "scaleY": 10.63158,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 38,
+          "y": 218,
+          "objectName": "obj_solidblock",
+          "instanceID": 100779,
+          "scaleX": 12.3,
+          "scaleY": 0.85,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 286,
+          "y": 23,
+          "objectName": "obj_solidblock",
+          "instanceID": 100780,
+          "scaleX": 0.85,
+          "scaleY": 10.63158,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 22,
+          "y": 3,
+          "objectName": "obj_solidblock",
+          "instanceID": 100781,
+          "scaleX": 13.95,
+          "scaleY": 0.9473684,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 269,
+          "y": 52,
+          "objectName": "obj_solidblock",
+          "instanceID": 100782,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 38,
+          "y": 52,
+          "objectName": "obj_solidblock",
+          "instanceID": 100783,
+          "scaleX": 9.894737,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_10",
+      "type": "Instances",
+      "depth": 10,
+      "layerId": 233,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 0,
+          "y": 0,
+          "objectName": "obj_overworldc",
+          "instanceID": 100767,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_0",
+      "type": "Instances",
+      "depth": 0,
+      "layerId": 232,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 68,
+          "y": 115,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100751,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 138,
+          "y": 115,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100752,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 206,
+          "y": 115,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100753,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 68,
+          "y": 146,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100754,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 138,
+          "y": 146,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100755,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 206,
+          "y": 146,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100756,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 68,
+          "y": 178,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100757,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 138,
+          "y": 178,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100758,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 206,
+          "y": 178,
+          "objectName": "obj_schooldesk",
+          "instanceID": 100759,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 100,
+          "y": 63,
+          "objectName": "obj_alphysdesk",
+          "instanceID": 100760,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 99,
+          "y": 28,
+          "objectName": "obj_classscene",
+          "instanceID": 100761,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 45,
+          "y": 47,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100762,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 165,
+          "y": 79,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100763,
+          "scaleX": 0.9,
+          "scaleY": 0.45,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 101,
+          "y": 76,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100764,
+          "scaleX": 0.55,
+          "scaleY": 0.368421,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 211,
+          "y": 52,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100765,
+          "scaleX": 0.9473684,
+          "scaleY": 0.9,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 242,
+          "y": 52,
+          "objectName": "obj_markerA",
+          "instanceID": 100766,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_-10",
+      "type": "Instances",
+      "depth": -10,
+      "layerId": 231,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 76,
+          "y": 152,
+          "objectName": "obj_npc_facing",
+          "instanceID": 100744,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 148,
+          "y": 152,
+          "objectName": "obj_npc_facing",
+          "instanceID": 100745,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 70,
+          "y": 182,
+          "objectName": "obj_npc_facing",
+          "instanceID": 100746,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 213,
+          "y": 216,
+          "objectName": "obj_npc_facing",
+          "instanceID": 100747,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 73,
+          "y": 216,
+          "objectName": "obj_npc_facing",
+          "instanceID": 100748,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 213,
+          "y": 184,
+          "objectName": "obj_npc_facing",
+          "instanceID": 100749,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 209,
+          "y": 119,
+          "objectName": "obj_tem_school",
+          "instanceID": 100750,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_-20",
+      "type": "Instances",
+      "depth": -20,
+      "layerId": 230,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 260,
+          "y": 110,
+          "objectName": "obj_mainchara",
+          "instanceID": 100743,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "gameObjects": [
+    {
+      "x": 260,
+      "y": 110,
+      "objectName": "obj_mainchara",
+      "instanceID": 100743,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "objectName": "obj_overworldc",
+      "instanceID": 100767,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 68,
+      "y": 115,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100751,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 138,
+      "y": 115,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100752,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 206,
+      "y": 115,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100753,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 68,
+      "y": 146,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100754,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 138,
+      "y": 146,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100755,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 206,
+      "y": 146,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100756,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 68,
+      "y": 178,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100757,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 138,
+      "y": 178,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100758,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 206,
+      "y": 178,
+      "objectName": "obj_schooldesk",
+      "instanceID": 100759,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 100,
+      "y": 63,
+      "objectName": "obj_alphysdesk",
+      "instanceID": 100760,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 69,
+      "y": 123,
+      "objectName": "obj_solidblock",
+      "instanceID": 100768,
+      "scaleX": 1.894737,
+      "scaleY": 0.8,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 69,
+      "y": 154,
+      "objectName": "obj_solidblock",
+      "instanceID": 100769,
+      "scaleX": 1.9,
+      "scaleY": 0.75,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 68,
+      "y": 188,
+      "objectName": "obj_solidblock",
+      "instanceID": 100770,
+      "scaleX": 1.947368,
+      "scaleY": 0.7,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 139,
+      "y": 187,
+      "objectName": "obj_solidblock",
+      "instanceID": 100771,
+      "scaleX": 1.89,
+      "scaleY": 0.75,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 139,
+      "y": 154,
+      "objectName": "obj_solidblock",
+      "instanceID": 100772,
+      "scaleX": 1.9,
+      "scaleY": 0.75,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 139,
+      "y": 123,
+      "objectName": "obj_solidblock",
+      "instanceID": 100773,
+      "scaleX": 1.894737,
+      "scaleY": 0.7894737,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 206,
+      "y": 123,
+      "objectName": "obj_solidblock",
+      "instanceID": 100774,
+      "scaleX": 1.95,
+      "scaleY": 0.7894737,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 206,
+      "y": 154,
+      "objectName": "obj_solidblock",
+      "instanceID": 100775,
+      "scaleX": 1.947368,
+      "scaleY": 0.75,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 206,
+      "y": 186,
+      "objectName": "obj_solidblock",
+      "instanceID": 100776,
+      "scaleX": 1.95,
+      "scaleY": 0.8,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 101,
+      "y": 89,
+      "objectName": "obj_solidblock",
+      "instanceID": 100777,
+      "scaleX": 4.631579,
+      "scaleY": 0.7894737,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 18,
+      "y": 23,
+      "objectName": "obj_solidblock",
+      "instanceID": 100778,
+      "scaleX": 1,
+      "scaleY": 10.63158,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 38,
+      "y": 218,
+      "objectName": "obj_solidblock",
+      "instanceID": 100779,
+      "scaleX": 12.3,
+      "scaleY": 0.85,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 286,
+      "y": 23,
+      "objectName": "obj_solidblock",
+      "instanceID": 100780,
+      "scaleX": 0.85,
+      "scaleY": 10.63158,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 22,
+      "y": 3,
+      "objectName": "obj_solidblock",
+      "instanceID": 100781,
+      "scaleX": 13.95,
+      "scaleY": 0.9473684,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 269,
+      "y": 52,
+      "objectName": "obj_solidblock",
+      "instanceID": 100782,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 38,
+      "y": 52,
+      "objectName": "obj_solidblock",
+      "instanceID": 100783,
+      "scaleX": 9.894737,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 76,
+      "y": 152,
+      "objectName": "obj_npc_facing",
+      "instanceID": 100744,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 148,
+      "y": 152,
+      "objectName": "obj_npc_facing",
+      "instanceID": 100745,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 70,
+      "y": 182,
+      "objectName": "obj_npc_facing",
+      "instanceID": 100746,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 213,
+      "y": 216,
+      "objectName": "obj_npc_facing",
+      "instanceID": 100747,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 73,
+      "y": 216,
+      "objectName": "obj_npc_facing",
+      "instanceID": 100748,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 213,
+      "y": 184,
+      "objectName": "obj_npc_facing",
+      "instanceID": 100749,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 209,
+      "y": 119,
+      "objectName": "obj_tem_school",
+      "instanceID": 100750,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 99,
+      "y": 28,
+      "objectName": "obj_classscene",
+      "instanceID": 100761,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 45,
+      "y": 47,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100762,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 165,
+      "y": 79,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100763,
+      "scaleX": 0.9,
+      "scaleY": 0.45,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 101,
+      "y": 76,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100764,
+      "scaleX": 0.55,
+      "scaleY": 0.368421,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 211,
+      "y": 52,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100765,
+      "scaleX": 0.9473684,
+      "scaleY": 0.9,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 242,
+      "y": 52,
+      "objectName": "obj_markerA",
+      "instanceID": 100766,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    }
+  ],
+  "views": [
+    {
+      "enabled": true,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 320,
+      "viewHeight": 240,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 640,
+      "portHeight": 320,
+      "borderX": 160,
+      "borderY": 240,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": "obj_mainchara"
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    }
+  ]
+}

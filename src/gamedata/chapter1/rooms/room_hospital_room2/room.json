@@ -1,0 +1,630 @@
+{
+  "name": "room_hospital_room2",
+  "width": 320,
+  "height": 240,
+  "canvasWidth": 320,
+  "canvasHeight": 256,
+  "canvasOffsetX": 0,
+  "canvasOffsetY": 0,
+  "speed": 0,
+  "persistent": false,
+  "backgroundColor": "#000000",
+  "drawBackgroundColor": false,
+  "isGMS2": true,
+  "isGMS2_3": true,
+  "enableViews": true,
+  "gridWidth": 16,
+  "gridHeight": 16,
+  "layers": [
+    {
+      "name": "Compatibility_Colour",
+      "type": "Background",
+      "depth": 2147483600,
+      "layerId": 166,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "backgroundData": {
+        "sprite": null,
+        "visible": true,
+        "foreground": false,
+        "stretch": false,
+        "tiledHorizontally": false,
+        "tiledVertically": false,
+        "color": "#000000",
+        "firstFrame": 0,
+        "animationSpeed": 15,
+        "animationSpeedType": "FPS"
+      }
+    },
+    {
+      "name": "Compatibility_Background_0_bg_hospital_room2",
+      "type": "Background",
+      "depth": 2147483500,
+      "layerId": 165,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "backgroundData": {
+        "sprite": "bg_hospital_room2",
+        "visible": true,
+        "foreground": false,
+        "stretch": false,
+        "tiledHorizontally": true,
+        "tiledVertically": true,
+        "color": "#FFFFFF",
+        "firstFrame": 0,
+        "animationSpeed": 15,
+        "animationSpeedType": "FPS"
+      }
+    },
+    {
+      "name": "Compatibility_Instances_Depth_100",
+      "type": "Instances",
+      "depth": 100,
+      "layerId": 164,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 120,
+          "y": 200,
+          "objectName": "obj_solidblock",
+          "instanceID": 100500,
+          "scaleX": 1,
+          "scaleY": 2,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 180,
+          "y": 200,
+          "objectName": "obj_solidblock",
+          "instanceID": 100501,
+          "scaleX": 1,
+          "scaleY": 2,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 200,
+          "y": 200,
+          "objectName": "obj_solidblock",
+          "instanceID": 100502,
+          "scaleX": 3,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 260,
+          "y": 60,
+          "objectName": "obj_solidblock",
+          "instanceID": 100503,
+          "scaleX": 1,
+          "scaleY": 8,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 100,
+          "y": 60,
+          "objectName": "obj_solidblock",
+          "instanceID": 100504,
+          "scaleX": 1,
+          "scaleY": 8,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 120,
+          "y": 92,
+          "objectName": "obj_solidblock",
+          "instanceID": 100505,
+          "scaleX": 7.1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 116,
+          "y": 100,
+          "objectName": "obj_solidblock",
+          "instanceID": 100506,
+          "scaleX": 1.6,
+          "scaleY": 0.9,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 120,
+          "y": 162,
+          "objectName": "obj_solidblock",
+          "instanceID": 100507,
+          "scaleX": 1,
+          "scaleY": 2.3,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 240,
+          "y": 162,
+          "objectName": "obj_solidblock",
+          "instanceID": 100508,
+          "scaleX": 1.1,
+          "scaleY": 2,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 210,
+          "y": 110,
+          "objectName": "obj_solidblock",
+          "instanceID": 100509,
+          "scaleX": 2.5,
+          "scaleY": 2.6,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_10",
+      "type": "Instances",
+      "depth": 10,
+      "layerId": 163,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 0,
+          "y": 0,
+          "objectName": "obj_overworldc",
+          "instanceID": 100499,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_0",
+      "type": "Instances",
+      "depth": 0,
+      "layerId": 162,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 214,
+          "y": 110,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100492,
+          "scaleX": 2.1,
+          "scaleY": 2.3,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 164,
+          "y": 90,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100493,
+          "scaleX": 1.5,
+          "scaleY": 0.9,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 124,
+          "y": 98,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100494,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 120,
+          "y": 166,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100495,
+          "scaleX": 0.9,
+          "scaleY": 1.789474,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 244,
+          "y": 166,
+          "objectName": "obj_readable_room1",
+          "instanceID": 100496,
+          "scaleX": 0.9,
+          "scaleY": 1.6,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 140,
+          "y": 236,
+          "objectName": "obj_doorD",
+          "instanceID": 100497,
+          "scaleX": 2,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        },
+        {
+          "x": 150,
+          "y": 186,
+          "objectName": "obj_markerC",
+          "instanceID": 100498,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Compatibility_Instances_Depth_-20",
+      "type": "Instances",
+      "depth": -20,
+      "layerId": 161,
+      "visible": true,
+      "xOffset": 0,
+      "yOffset": 0,
+      "hSpeed": 0,
+      "vSpeed": 0,
+      "instances": [
+        {
+          "x": 150,
+          "y": 186,
+          "objectName": "obj_mainchara",
+          "instanceID": 100491,
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "color": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "gameObjects": [
+    {
+      "x": 150,
+      "y": 186,
+      "objectName": "obj_mainchara",
+      "instanceID": 100491,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "objectName": "obj_overworldc",
+      "instanceID": 100499,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 120,
+      "y": 200,
+      "objectName": "obj_solidblock",
+      "instanceID": 100500,
+      "scaleX": 1,
+      "scaleY": 2,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 180,
+      "y": 200,
+      "objectName": "obj_solidblock",
+      "instanceID": 100501,
+      "scaleX": 1,
+      "scaleY": 2,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 200,
+      "y": 200,
+      "objectName": "obj_solidblock",
+      "instanceID": 100502,
+      "scaleX": 3,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 260,
+      "y": 60,
+      "objectName": "obj_solidblock",
+      "instanceID": 100503,
+      "scaleX": 1,
+      "scaleY": 8,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 100,
+      "y": 60,
+      "objectName": "obj_solidblock",
+      "instanceID": 100504,
+      "scaleX": 1,
+      "scaleY": 8,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 120,
+      "y": 92,
+      "objectName": "obj_solidblock",
+      "instanceID": 100505,
+      "scaleX": 7.1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 116,
+      "y": 100,
+      "objectName": "obj_solidblock",
+      "instanceID": 100506,
+      "scaleX": 1.6,
+      "scaleY": 0.9,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 120,
+      "y": 162,
+      "objectName": "obj_solidblock",
+      "instanceID": 100507,
+      "scaleX": 1,
+      "scaleY": 2.3,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 240,
+      "y": 162,
+      "objectName": "obj_solidblock",
+      "instanceID": 100508,
+      "scaleX": 1.1,
+      "scaleY": 2,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 210,
+      "y": 110,
+      "objectName": "obj_solidblock",
+      "instanceID": 100509,
+      "scaleX": 2.5,
+      "scaleY": 2.6,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 214,
+      "y": 110,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100492,
+      "scaleX": 2.1,
+      "scaleY": 2.3,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 164,
+      "y": 90,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100493,
+      "scaleX": 1.5,
+      "scaleY": 0.9,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 124,
+      "y": 98,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100494,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 120,
+      "y": 166,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100495,
+      "scaleX": 0.9,
+      "scaleY": 1.789474,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 244,
+      "y": 166,
+      "objectName": "obj_readable_room1",
+      "instanceID": 100496,
+      "scaleX": 0.9,
+      "scaleY": 1.6,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 140,
+      "y": 236,
+      "objectName": "obj_doorD",
+      "instanceID": 100497,
+      "scaleX": 2,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    },
+    {
+      "x": 150,
+      "y": 186,
+      "objectName": "obj_markerC",
+      "instanceID": 100498,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "color": "#FFFFFF"
+    }
+  ],
+  "views": [
+    {
+      "enabled": true,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 320,
+      "viewHeight": 240,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 640,
+      "portHeight": 320,
+      "borderX": 160,
+      "borderY": 240,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": "obj_mainchara"
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    },
+    {
+      "enabled": false,
+      "viewX": 0,
+      "viewY": 0,
+      "viewWidth": 1024,
+      "viewHeight": 768,
+      "portX": 0,
+      "portY": 0,
+      "portWidth": 1024,
+      "portHeight": 768,
+      "borderX": 32,
+      "borderY": 32,
+      "speedX": -1,
+      "speedY": -1,
+      "followsObject": null
+    }
+  ]
+}
