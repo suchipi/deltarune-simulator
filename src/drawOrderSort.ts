@@ -1,12 +1,12 @@
 import { Component, Entity, useRootEntity } from "@hex-engine/2d";
 import { Camera } from "./Camera";
-import { BackgroundLayer } from "./useBackgroundDraw";
+import { BackgroundLayer } from "./useZIndex";
 import { ForegroundLayer } from "./useForegroundDraw";
 
 // Copied from hex-engine internals
 function isDebugOverlay(
   component: Component,
-  storage: { [key: PropertyKey]: any } | undefined
+  storage: { [key: PropertyKey]: any } | undefined,
 ) {
   if (!storage) return false;
 
@@ -22,7 +22,7 @@ export function drawOrderSort(entities: Array<Entity>): Array<Component> {
   const debugOverlays: Array<Component> = [];
 
   const storageForIsDebugOverlay = Array.from(useRootEntity().components).find(
-    (comp) => comp.type?.name === "StorageForDebugOverlayDrawTime"
+    (comp) => comp.type?.name === "StorageForDebugOverlayDrawTime",
   );
 
   // Start sorted by id (so that later-created entities are drawn above

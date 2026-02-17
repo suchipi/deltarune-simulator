@@ -28,7 +28,7 @@ export default function Root() {
       debugDraw: true,
       enableSleeping: true,
       gravity: new Vector(0, 0),
-    })
+    }),
   );
 
   // useNewComponent(() => DramaticSound());
@@ -36,7 +36,7 @@ export default function Root() {
   const player = useChild(() =>
     // initial player position matches playerSpawn position in first room so
     // player doesn't teleport on first frame
-    Player(new Vector(255, 130), krisLightWorld, new Vector(-1, -10))
+    Player(new Vector(255, 130), krisLightWorld, new Vector(-1, -10)),
   );
 
   const camera = useNewComponent(() => Camera(player.rootComponent.position));
@@ -44,8 +44,10 @@ export default function Root() {
   //   camera.position.mutateInto(player.rootComponent.position);
   // });
 
-  const router = useNewComponent(() =>
-    RoomRouter(player.rootComponent.setPosition)
-  );
-  router.goTo(RoomKrisRoom, "playerSpawn");
+  // const router = useNewComponent(() =>
+  //   RoomRouter(player.rootComponent.setPosition)
+  // );
+  // router.goTo(RoomKrisRoom, "playerSpawn");
+
+  useChild(() => RoomKrisRoom(player));
 }

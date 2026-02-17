@@ -11,13 +11,13 @@ import { RoomComponent } from "./RoomComponent";
 export type RoomRouterApi = {
   goTo<Room extends RoomComponent>(
     room: Room,
-    pointOfInterest: keyof ReturnType<Room>["pointsOfInterest"]
+    pointOfInterest: keyof ReturnType<Room>["pointsOfInterest"],
   ): void;
   currentRoom: (Entity & { rootComponent: ReturnType<RoomComponent> }) | null;
 };
 
 export function RoomRouter(
-  setPlayerPosition: (newPosition: Vector) => void
+  setPlayerPosition: (newPosition: Vector) => void,
   // camera: Entity & { rootComponent: Component & ReturnType<typeof Camera> }
 ) {
   useType(RoomRouter);
@@ -28,7 +28,7 @@ export function RoomRouter(
 
   function goTo<Room extends RoomComponent>(
     room: Room,
-    pointOfInterest: keyof ReturnType<Room>["pointsOfInterest"]
+    pointOfInterest: keyof ReturnType<Room>["pointsOfInterest"],
   ) {
     if (currentRoom != null) {
       currentRoom.destroy();
@@ -46,8 +46,8 @@ export function RoomRouter(
     if (poiPos == null) {
       throw new Error(
         `Room ${JSON.stringify(
-          room.name
-        )} has no point of interest ${JSON.stringify(pointOfInterest)}!`
+          room.name,
+        )} has no point of interest ${JSON.stringify(pointOfInterest)}!`,
       );
     }
     setPlayerPosition(poiPos);
@@ -67,7 +67,7 @@ export function useRoomRouter(): RoomRouterApi {
   const roomRouter = useRootEntity().getComponent(RoomRouter);
   if (roomRouter == null) {
     throw new Error(
-      "No RoomRouter component was present on the root entity! Please add one"
+      "No RoomRouter component was present on the root entity! Please add one",
     );
   }
 
