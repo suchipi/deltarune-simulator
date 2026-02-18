@@ -1,5 +1,7 @@
+import { RoomName } from "./RoomName";
+
 export type RoomJson = {
-  name: string;
+  name: RoomName;
   width: number;
   height: number;
   canvasWidth: number;
@@ -52,7 +54,7 @@ export type RoomLayerJson = {
   | {
       type: "Assets";
       assetsData: {
-        legacyTiles: Array<RoomTile>;
+        legacyTiles: Array<RoomTileJson>;
       };
     }
 );
@@ -68,7 +70,7 @@ export type RoomInstanceJson = {
   color: string;
 };
 
-export type RoomTile = {
+export type RoomTileJson = {
   x: number;
   y: number;
   width: number;

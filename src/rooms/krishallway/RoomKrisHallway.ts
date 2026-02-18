@@ -1,11 +1,6 @@
 import { useType, useNewComponent, Vector, Image } from "@hex-engine/2d";
 import mainUrl from "./main.png";
 import mirrorUrl from "./mirror.png";
-import { makeWallBuilder } from "../../Wall";
-import { makeSensorBuilder } from "../../Sensor";
-import { RoomComponentReturn } from "../RoomComponent";
-import { useBackgroundDraw } from "../../useDepth";
-import { useForegroundDraw } from "../../useForegroundDraw";
 import { useRoomRouter } from "../RoomRouter";
 import RoomKrisRoom from "../krisroom/RoomKrisRoom";
 

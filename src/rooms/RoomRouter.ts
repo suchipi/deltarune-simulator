@@ -7,51 +7,79 @@ import {
   Vector,
 } from "@hex-engine/2d";
 import { RoomComponent } from "./RoomComponent";
+import { RoomName } from "./RoomName";
+import type Player from "../Player";
 
 export type RoomRouterApi = {
-  goTo<Room extends RoomComponent>(
-    room: Room,
-    pointOfInterest: keyof ReturnType<Room>["pointsOfInterest"],
+  goTo(
+    room: RoomName,
+    position:
+      | {
+          type: "VECTOR";
+          vector: Vector;
+        }
+      | {
+          type: "POSITION_OF_GAME_OBJECT";
+          gameObjectName: string;
+        },
   ): void;
-  currentRoom: (Entity & { rootComponent: ReturnType<RoomComponent> }) | null;
+  currentRoom:
+    | (Entity & { rootComponent: ReturnType<typeof RoomComponent> })
+    | null;
 };
 
 export function RoomRouter(
+  playerEntity: Entity & { rootComponent: ReturnType<typeof Player> },
   setPlayerPosition: (newPosition: Vector) => void,
-  // camera: Entity & { rootComponent: Component & ReturnType<typeof Camera> }
 ) {
   useType(RoomRouter);
 
   let currentRoom:
-    | (Entity & { rootComponent: ReturnType<RoomComponent> })
+    | (Entity & { rootComponent: ReturnType<typeof RoomComponent> })
     | null = null;
 
-  function goTo<Room extends RoomComponent>(
-    room: Room,
-    pointOfInterest: keyof ReturnType<Room>["pointsOfInterest"],
-  ) {
+  const goTo: RoomRouterApi["goTo"] = function goTo(room, position) {
+    playerEntity.parent?.removeChild(playerEntity);
+
     if (currentRoom != null) {
       currentRoom.destroy();
     }
 
-    currentRoom = useChild(room);
-    const poisMap = currentRoom.rootComponent.pointsOfInterest;
+    currentRoom = useChild(() => RoomComponent(room));
 
-    let poiPos: Vector | null = null;
-    if (Object.hasOwn(poisMap, pointOfInterest)) {
-      // @ts-ignore
-      poiPos = poisMap[pointOfInterest];
-    }
+    const layerWithMainChara = Object.values(
+      currentRoom.rootComponent.layers,
+    ).find((layer) => {
+      if (layer.rootComponent.data.type !== "Instances") {
+        return false;
+      }
 
-    if (poiPos == null) {
-      throw new Error(
-        `Room ${JSON.stringify(
-          room.name,
-        )} has no point of interest ${JSON.stringify(pointOfInterest)}!`,
+      const mainChara = layer.rootComponent.data.instances.find(
+        (instance) => instance.objectName === "obj_mainchara",
       );
+
+      return mainChara != null;
+    });
+
+    if (layerWithMainChara != null) {
+      layerWithMainChara.addChild(playerEntity);
+    } else {
+      console.warn(
+        "Couldn't find a layer with obj_mainchara; setting player entity parent to Root entity",
+      );
+      useRootEntity().addChild(playerEntity);
     }
-    setPlayerPosition(poiPos);
-  }
+
+    switch (position.type) {
+      case "VECTOR": {
+        setPlayerPosition(position.vector);
+        break;
+      }
+      case "POSITION_OF_GAME_OBJECT": {
+        // find game object, etc
+      }
+    }
+  };
 
   const api: RoomRouterApi = {
     goTo: useCallbackAsCurrent(goTo),

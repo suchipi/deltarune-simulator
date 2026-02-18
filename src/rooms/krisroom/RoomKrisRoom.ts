@@ -5,12 +5,8 @@ import {
   Image,
   Entity,
 } from "@hex-engine/2d";
-import bgUrl from "./bg.png";
-import fgUrl from "./fg.png";
-import { makeWallBuilder } from "../../Wall";
 import { RoomComponent } from "../RoomComponent";
 import { useRoomRouter } from "../RoomRouter";
-import { makeSensorBuilder } from "../../Sensor";
 import RoomKrisHallway from "../krishallway/RoomKrisHallway";
 import { setDepth } from "../../useDepth";
 

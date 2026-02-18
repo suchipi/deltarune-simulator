@@ -5,8 +5,6 @@ import {
   Polygon,
   Vector,
   Physics,
-  useChild,
-  ReadOnlyVector,
 } from "@hex-engine/2d";
 
 export type SensorCallbacks = {
@@ -17,7 +15,7 @@ export type SensorCallbacks = {
 export default function Sensor(
   position: Vector,
   size: Vector,
-  callbacks: SensorCallbacks
+  callbacks: SensorCallbacks,
 ) {
   useType(Sensor);
 
@@ -25,14 +23,14 @@ export default function Sensor(
     Geometry({
       shape: Polygon.rectangle(size),
       position: position.add(size.divide(2)),
-    })
+    }),
   );
 
   const body = useNewComponent(() =>
     Physics.Body(geometry, {
       isStatic: true,
       isSensor: true,
-    })
+    }),
   );
 
   if (callbacks.onStart || callbacks.onEnd) {
@@ -44,24 +42,4 @@ export default function Sensor(
       }
     });
   }
-}
-
-export function makeSensorBuilder(roomTopLeftOffset: ReadOnlyVector) {
-  return {
-    makeSensor(
-      topLeftX: number,
-      topLeftY: number,
-      bottomRightX: number,
-      bottomRightY: number,
-      callbacks: SensorCallbacks
-    ) {
-      useChild(() =>
-        Sensor(
-          roomTopLeftOffset.addX(topLeftX).addYMutate(topLeftY),
-          new Vector(bottomRightX - topLeftX, bottomRightY - topLeftY),
-          callbacks
-        )
-      );
-    },
-  };
 }

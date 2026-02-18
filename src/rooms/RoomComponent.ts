@@ -10,6 +10,7 @@ import {
 import { RoomJson, RoomLayerJson } from "./RoomJson";
 import { useDepth } from "../useDepth";
 import { GameObject } from "../objects/GameObject";
+import { RoomName } from "./RoomName";
 
 const requireRoomJson = require.context(
   "../gamedata/chapter1/rooms",
@@ -23,7 +24,7 @@ const requireLayerPng = require.context(
   /layers\/.+\.png$/,
 );
 
-export function RoomLayer(roomName: string, layerJson: RoomLayerJson) {
+export function RoomLayer(roomName: RoomName, layerJson: RoomLayerJson) {
   useType(RoomLayer);
 
   useDepth(layerJson.depth);
@@ -61,7 +62,7 @@ export function RoomLayer(roomName: string, layerJson: RoomLayerJson) {
   };
 }
 
-export function RoomComponent(roomName: string) {
+export function RoomComponent(roomName: RoomName) {
   useType(RoomComponent);
 
   const roomJson: RoomJson = requireRoomJson(`./${roomName}/room.json`);
