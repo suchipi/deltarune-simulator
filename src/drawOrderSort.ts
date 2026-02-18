@@ -27,7 +27,7 @@ export function drawOrderSort(entities: Array<Entity>): Array<Component> {
   const entsSortedById = entities.toSorted((entA, entB) => entA.id - entB.id);
 
   for (const ent of entsSortedById) {
-    const depth = ent.getComponent(Depth)?.depth ?? 0;
+    const depth = ent.getComponent(Depth)?.depth ?? 0; // TODO: inherit from ancestor when unset
 
     for (const component of ent.components) {
       if (component.type === Camera) {
