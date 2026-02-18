@@ -4,7 +4,7 @@ import mirrorUrl from "./mirror.png";
 import { makeWallBuilder } from "../../Wall";
 import { makeSensorBuilder } from "../../Sensor";
 import { RoomComponentReturn } from "../RoomComponent";
-import { useBackgroundDraw } from "../../useZIndex";
+import { useBackgroundDraw } from "../../useDepth";
 import { useForegroundDraw } from "../../useForegroundDraw";
 import { useRoomRouter } from "../RoomRouter";
 import RoomKrisRoom from "../krisroom/RoomKrisRoom";

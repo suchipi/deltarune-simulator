@@ -1,7 +1,6 @@
 import { Component, Entity, useRootEntity } from "@hex-engine/2d";
 import { Camera } from "./Camera";
-import { BackgroundLayer } from "./useZIndex";
-import { ForegroundLayer } from "./useForegroundDraw";
+import { Depth } from "./useDepth";
 
 // Copied from hex-engine internals
 function isDebugOverlay(
@@ -16,9 +15,7 @@ function isDebugOverlay(
 // Debug overlay parts based off of hex-engine internals
 export function drawOrderSort(entities: Array<Entity>): Array<Component> {
   const cameras: Array<Component> = [];
-  const backgrounds: Array<Component> = [];
-  const objects: Array<Component> = [];
-  const foregrounds: Array<Component> = [];
+  const objects: Array<[Component, number]> = [];
   const debugOverlays: Array<Component> = [];
 
   const storageForIsDebugOverlay = Array.from(useRootEntity().components).find(
@@ -27,27 +24,31 @@ export function drawOrderSort(entities: Array<Entity>): Array<Component> {
 
   // Start sorted by id (so that later-created entities are drawn above
   // earlier-created entities)
-  for (const ent of [...entities].sort((entA, entB) => entA.id - entB.id)) {
+  const entsSortedById = entities.toSorted((entA, entB) => entA.id - entB.id);
+
+  for (const ent of entsSortedById) {
+    const depth = ent.getComponent(Depth)?.depth ?? 0;
+
     for (const component of ent.components) {
       if (component.type === Camera) {
         cameras.push(component);
-      } else if (component.type === BackgroundLayer) {
-        backgrounds.push(component);
-      } else if (component.type === ForegroundLayer) {
-        foregrounds.push(component);
       } else if (isDebugOverlay(component, storageForIsDebugOverlay)) {
         debugOverlays.push(component);
       } else {
-        objects.push(component);
+        objects.push([component, depth]);
       }
     }
   }
 
   return [
     ...cameras,
-    ...backgrounds,
-    ...objects,
-    ...foregrounds,
+    ...objects
+      .sort(
+        (a, b) =>
+          // NOTE: GameMakerStudio depth has lower numbers on top
+          b[1] - a[1],
+      )
+      .map((x) => x[0]),
     ...debugOverlays,
   ];
 }

@@ -9,28 +9,19 @@ import bgUrl from "./bg.png";
 import fgUrl from "./fg.png";
 import { makeWallBuilder } from "../../Wall";
 import { RoomComponent } from "../RoomComponent";
-import { BackgroundLayer } from "../../useZIndex";
-import { ForegroundLayer } from "../../useForegroundDraw";
 import { useRoomRouter } from "../RoomRouter";
 import { makeSensorBuilder } from "../../Sensor";
 import RoomKrisHallway from "../krishallway/RoomKrisHallway";
+import { setDepth } from "../../useDepth";
 
 export default function RoomKrisRoom(playerEntity: Entity) {
   useType(RoomKrisRoom);
 
-  const room = useNewComponent(() =>
-    RoomComponent(
-      "room_krisroom",
-      new Set([
-        "Compatibility_Instances_Depth_-20",
-        "Compatibility_Instances_Depth_0",
-        "Compatibility_Instances_Depth_100",
-      ]),
-    ),
-  );
+  const room = useNewComponent(() => RoomComponent("room_krisroom"));
 
   playerEntity.parent?.removeChild(playerEntity);
   room.layers["Compatibility_Instances_Depth_-20"].addChild(playerEntity);
+  setDepth(playerEntity, -20);
 
   // const bgImage = useNewComponent(() => Image({ url: bgUrl }));
   // const fgImage = useNewComponent(() => Image({ url: fgUrl }));

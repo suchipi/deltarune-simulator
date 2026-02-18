@@ -8,14 +8,16 @@ import {
   Component,
 } from "@hex-engine/2d";
 import { RoomJson, RoomLayerJson } from "./RoomJson";
+import { useDepth } from "../useDepth";
+import { GameObject } from "../objects/GameObject";
 
-const roomJsonContext = require.context(
+const requireRoomJson = require.context(
   "../gamedata/chapter1/rooms",
   true,
   /room\.json$/,
 );
 
-const roomLayerContext = require.context(
+const requireLayerPng = require.context(
   "../gamedata/chapter1/rooms",
   true,
   /layers\/.+\.png$/,
@@ -24,9 +26,20 @@ const roomLayerContext = require.context(
 export function RoomLayer(roomName: string, layerJson: RoomLayerJson) {
   useType(RoomLayer);
 
+  useDepth(layerJson.depth);
+
   let image: null | (Component & ReturnType<typeof Image>) = null;
-  if (layerJson.type !== "Instances") {
-    const imageUrl = roomLayerContext(
+  let instances: Array<
+    Entity & { rootComponent: ReturnType<typeof GameObject> }
+  > = [];
+
+  if (layerJson.type === "Instances") {
+    for (const instance of layerJson.instances) {
+      const child = useChild(() => GameObject(instance));
+      instances.push(child);
+    }
+  } else {
+    const imageUrl = requireLayerPng(
       `./${roomName}/layers/${layerJson.name}.png`,
     ).default;
 
@@ -34,23 +47,24 @@ export function RoomLayer(roomName: string, layerJson: RoomLayerJson) {
 
     useDraw((context) => {
       image!.draw(context, {
-        x: layerJson.xOffset,
-        y: layerJson.yOffset,
+        x: -layerJson.xOffset,
+        y: -layerJson.yOffset,
       });
     });
   }
 
   return {
     image,
+    instances,
     roomName,
     data: layerJson,
   };
 }
 
-export function RoomComponent(roomName: string, layersToSkip: Set<string>) {
+export function RoomComponent(roomName: string) {
   useType(RoomComponent);
 
-  const roomJson: RoomJson = roomJsonContext(`./${roomName}/room.json`);
+  const roomJson: RoomJson = requireRoomJson(`./${roomName}/room.json`);
 
   const layers: {
     [key: string]: Entity & { rootComponent: ReturnType<typeof RoomLayer> };
