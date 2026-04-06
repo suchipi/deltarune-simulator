@@ -1,6 +1,6 @@
 import { Component, Entity, useRootEntity } from "@hex-engine/2d";
 import { Camera } from "./Camera";
-import { Depth } from "./useDepth";
+import { getDepth } from "./useDepth";
 
 // Copied from hex-engine internals
 function isDebugOverlay(
@@ -27,7 +27,7 @@ export function drawOrderSort(entities: Array<Entity>): Array<Component> {
   const entsSortedById = entities.toSorted((entA, entB) => entA.id - entB.id);
 
   for (const ent of entsSortedById) {
-    const depth = ent.getComponent(Depth)?.depth ?? 0; // TODO: inherit from ancestor when unset
+    const depth = getDepth(ent);
 
     for (const component of ent.components) {
       if (component.type === Camera) {
