@@ -6,6 +6,7 @@ import {
   useChild,
   Entity,
   Component,
+  useEntityName,
 } from "@hex-engine/2d";
 import { RoomJson, RoomLayerJson } from "./RoomJson";
 import { useDepth } from "../useDepth";
@@ -28,6 +29,8 @@ export function RoomLayer(roomName: RoomName, layerJson: RoomLayerJson) {
   useType(RoomLayer);
 
   useDepth(layerJson.depth);
+
+  useEntityName(layerJson.name);
 
   let image: null | (Component & ReturnType<typeof Image>) = null;
   let instances: Array<
@@ -64,6 +67,8 @@ export function RoomLayer(roomName: RoomName, layerJson: RoomLayerJson) {
 
 export function RoomComponent(roomName: RoomName) {
   useType(RoomComponent);
+
+  useEntityName(roomName);
 
   const roomJson: RoomJson = requireRoomJson(`./${roomName}/room.json`);
 

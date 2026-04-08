@@ -1,4 +1,4 @@
-import { useNewComponent, useType } from "@hex-engine/2d";
+import { useEntityName, useNewComponent, useType } from "@hex-engine/2d";
 import { RoomInstanceJson } from "../rooms/RoomJson";
 
 const requireObject = require.context(".", false, /obj_[^.]+\.ts$/);
@@ -11,6 +11,8 @@ const objectNames = new Set(
 
 export function GameObject(instance: RoomInstanceJson) {
   useType(GameObject);
+
+  useEntityName(instance.objectName);
 
   if (!objectNames.has(instance.objectName)) {
     console.warn(`Unsupported GameObject: ${instance.objectName}`);
