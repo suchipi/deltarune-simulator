@@ -31,6 +31,8 @@ export function RoomRouter(
     | null = null;
 
   const goTo: RoomRouterApi["goTo"] = function goTo(...args: any) {
+    console.log("goTo", ...args);
+
     let roomName: RoomName;
     let position: Vector | null = null;
     let gameObjectPath: GameObjectPath | null = null;
@@ -38,7 +40,7 @@ export function RoomRouter(
       [roomName, position] = args;
     } else {
       [gameObjectPath] = args;
-      roomName = fromGameObjectPath(gameObjectPath!).roomName;
+      ({ roomName } = fromGameObjectPath(gameObjectPath!));
     }
 
     // just for fun

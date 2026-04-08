@@ -46,5 +46,5 @@ export default function Root() {
   const router = useNewComponent(() =>
     RoomRouter(player, player.rootComponent.setPosition),
   );
-  router.goTo("/room_krisroom/obj_markerB");
+  router.goTo("/room_krishallway/obj_markerA");
 }

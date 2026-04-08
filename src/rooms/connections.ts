@@ -1,24 +1,28 @@
-import { GameObjectName } from "../objects/GameObjectName";
 import { RoomName } from "./RoomName";
+import { RoomGameObjects } from "./RoomGameObjects";
 
-export type GameObjectPath = `/${RoomName}/${GameObjectName}`;
+export type GameObjectPath = {
+  [SomeRoomName in RoomName]: `/${SomeRoomName}/${RoomGameObjects[SomeRoomName]}`;
+}[RoomName];
 
-export function toGameObjectPath(
-  roomName: RoomName,
-  gameObjectName: GameObjectName,
-): GameObjectPath {
+export function toGameObjectPath<SomeRoomName extends RoomName>(
+  roomName: SomeRoomName,
+  gameObjectName: RoomGameObjects[SomeRoomName],
+): `/${SomeRoomName}/${RoomGameObjects[SomeRoomName]}` {
   return `/${roomName}/${gameObjectName}`;
 }
 
-export function fromGameObjectPath(gameObjectPath: GameObjectPath): {
-  roomName: RoomName;
-  gameObjectName: string;
+export function fromGameObjectPath<SomeRoomName extends RoomName>(
+  gameObjectPath: `/${SomeRoomName}/${RoomGameObjects[SomeRoomName]}`,
+): {
+  roomName: SomeRoomName;
+  gameObjectName: RoomGameObjects[SomeRoomName];
 } {
   const matches = gameObjectPath.match(/^\/([^/]+)\/([^/]+)$/);
   if (matches && matches[1] && matches[2]) {
     return {
-      roomName: matches[1] as RoomName,
-      gameObjectName: matches[2],
+      roomName: matches[1] as SomeRoomName,
+      gameObjectName: matches[2] as RoomGameObjects[SomeRoomName],
     };
   } else {
     throw new Error(`Failed to parse game object path: ${gameObjectPath}`);

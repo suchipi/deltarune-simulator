@@ -11,9 +11,9 @@ import { RoomInstanceJson } from "./RoomJson";
 import { GameObjectPath } from "./connections";
 import { isPlayer } from "../Player";
 import { useRoomRouter } from "./RoomRouter";
+import { GameObjectDimensions } from "../objects/GameObjectDimensions";
 
-// TODO this should vary depending on the game object
-const SIZE = new Vector(20, 20);
+const fallbackSize = new Vector(4, 4);
 
 export function RoomConnection(
   instance: RoomInstanceJson,
@@ -23,7 +23,10 @@ export function RoomConnection(
 
   useEntityName(instance.objectName);
 
-  const size = SIZE.multiplyX(instance.scaleX).multiplyYMutate(instance.scaleY);
+  const baseSize = GameObjectDimensions[instance.objectName] ?? fallbackSize;
+  const size = baseSize
+    .multiplyX(instance.scaleX)
+    .multiplyYMutate(instance.scaleY);
 
   const geometry = useNewComponent(() =>
     Geometry({
