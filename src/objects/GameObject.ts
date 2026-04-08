@@ -1,5 +1,6 @@
 import { useEntityName, useNewComponent, useType } from "@hex-engine/2d";
 import { RoomInstanceJson } from "../rooms/RoomJson";
+import { DefaultGameObject } from "./DefaultGameObject";
 
 const requireObject = require.context(".", false, /obj_[^.]+\.ts$/);
 
@@ -15,7 +16,9 @@ export function GameObject(instance: RoomInstanceJson) {
   useEntityName(instance.objectName);
 
   if (!objectNames.has(instance.objectName)) {
-    console.warn(`Unsupported GameObject: ${instance.objectName}`);
+    return {
+      gameObject: useNewComponent(() => DefaultGameObject(instance)),
+    };
   } else {
     const GameObjectComponent = requireObject(`./${instance.objectName}.ts`)[
       instance.objectName
@@ -25,8 +28,4 @@ export function GameObject(instance: RoomInstanceJson) {
       gameObject: useNewComponent(() => GameObjectComponent(instance)),
     };
   }
-
-  return {
-    gameObject: null,
-  };
 }

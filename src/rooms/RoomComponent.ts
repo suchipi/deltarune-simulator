@@ -12,6 +12,8 @@ import { RoomJson, RoomLayerJson } from "./RoomJson";
 import { useDepth } from "../useDepth";
 import { GameObject } from "../objects/GameObject";
 import { RoomName } from "./RoomName";
+import { connections } from "./connections";
+import { RoomConnection } from "./RoomConnection";
 
 const requireRoomJson = require.context(
   "../gamedata/chapter1/rooms",
@@ -34,12 +36,22 @@ export function RoomLayer(roomName: RoomName, layerJson: RoomLayerJson) {
 
   let image: null | (Component & ReturnType<typeof Image>) = null;
   let instances: Array<
-    Entity & { rootComponent: ReturnType<typeof GameObject> }
+    Entity & {
+      rootComponent: ReturnType<typeof GameObject | typeof RoomConnection>;
+    }
   > = [];
 
   if (layerJson.type === "Instances") {
     for (const instance of layerJson.instances) {
-      const child = useChild(() => GameObject(instance));
+      const maybeConnection =
+        connections[`/${roomName}/${instance.objectName}`];
+
+      let child: (typeof instances)[number];
+      if (maybeConnection) {
+        child = useChild(() => RoomConnection(instance, maybeConnection));
+      } else {
+        child = useChild(() => GameObject(instance));
+      }
       instances.push(child);
     }
   } else {

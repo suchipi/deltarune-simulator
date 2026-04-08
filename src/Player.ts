@@ -6,6 +6,7 @@ import {
   Shape,
   useChild,
   ReadOnlyVector,
+  Entity,
 } from "@hex-engine/2d";
 import PlayerBody from "./PlayerBody";
 import PlayerControls from "./PlayerControls";
@@ -34,4 +35,14 @@ export default function Player(
       playerBody.body.setPosition(newPosition);
     },
   };
+}
+
+export function isPlayer(entity: Entity) {
+  return (
+    "rootComponent" in entity &&
+    typeof entity.rootComponent === "object" &&
+    entity.rootComponent != null &&
+    "type" in entity.rootComponent &&
+    entity.rootComponent.type === Player
+  );
 }

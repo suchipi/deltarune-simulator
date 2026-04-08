@@ -12,7 +12,6 @@ import krisLightWorld from "./characters/kris-lightworld.aseprite";
 import { Camera } from "./Camera";
 import { RoomRouter } from "./rooms/RoomRouter";
 import { drawOrderSort } from "./drawOrderSort";
-import RoomKrisRoom from "./rooms/krisroom/RoomKrisRoom";
 
 export default function Root() {
   useType(Root);
@@ -44,10 +43,8 @@ export default function Root() {
   //   camera.position.mutateInto(player.rootComponent.position);
   // });
 
-  // const router = useNewComponent(() =>
-  //   RoomRouter(player.rootComponent.setPosition)
-  // );
-  // router.goTo(RoomKrisRoom, "playerSpawn");
-
-  useChild(() => RoomKrisRoom(player));
+  const router = useNewComponent(() =>
+    RoomRouter(player, player.rootComponent.setPosition),
+  );
+  router.goTo("/room_krisroom/obj_markerB");
 }

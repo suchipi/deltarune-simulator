@@ -1,3 +1,4 @@
+// Derived from filenames in src/gamedata/chapter1/rooms
 export type RoomName =
   | "PLACE_CONTACT"
   | "PLACE_DOG"

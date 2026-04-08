@@ -8,6 +8,8 @@ import {
 } from "@hex-engine/2d";
 import { RoomInstanceJson } from "../rooms/RoomJson";
 
+// 20x20 is the size of the game object sprite at
+// src/gamedata/chapter1/sprites/obj_solidblock.png
 const SIZE = new Vector(20, 20);
 
 export function obj_solidblock(instance: RoomInstanceJson) {
@@ -28,4 +30,10 @@ export function obj_solidblock(instance: RoomInstanceJson) {
       isStatic: true,
     }),
   );
+
+  return {
+    size,
+    geometry,
+    body,
+  };
 }

@@ -9,20 +9,12 @@ import {
 import { RoomComponent } from "./RoomComponent";
 import { RoomName } from "./RoomName";
 import type Player from "../Player";
+import { setDepth } from "../useDepth";
+import { fromGameObjectPath, GameObjectPath } from "./connections";
 
 export type RoomRouterApi = {
-  goTo(
-    room: RoomName,
-    position:
-      | {
-          type: "VECTOR";
-          vector: Vector;
-        }
-      | {
-          type: "POSITION_OF_GAME_OBJECT";
-          gameObjectName: string;
-        },
-  ): void;
+  goTo(gameObjectPath: GameObjectPath): void;
+  goTo(roomName: RoomName, position: Vector): void;
   currentRoom:
     | (Entity & { rootComponent: ReturnType<typeof RoomComponent> })
     | null;
@@ -38,14 +30,28 @@ export function RoomRouter(
     | (Entity & { rootComponent: ReturnType<typeof RoomComponent> })
     | null = null;
 
-  const goTo: RoomRouterApi["goTo"] = function goTo(room, position) {
+  const goTo: RoomRouterApi["goTo"] = function goTo(...args: any) {
+    let roomName: RoomName;
+    let position: Vector | null = null;
+    let gameObjectPath: GameObjectPath | null = null;
+    if (args.length === 2) {
+      [roomName, position] = args;
+    } else {
+      [gameObjectPath] = args;
+      roomName = fromGameObjectPath(gameObjectPath!).roomName;
+    }
+
+    // just for fun
+    location.hash =
+      gameObjectPath ?? `/${roomName}/${position?.x},${position?.y}`;
+
     playerEntity.parent?.removeChild(playerEntity);
 
     if (currentRoom != null) {
       currentRoom.destroy();
     }
 
-    currentRoom = useChild(() => RoomComponent(room));
+    currentRoom = useChild(() => RoomComponent(roomName));
 
     const layerWithMainChara = Object.values(
       currentRoom.rootComponent.layers,
@@ -70,19 +76,34 @@ export function RoomRouter(
       useRootEntity().addChild(playerEntity);
     }
 
-    switch (position.type) {
-      case "VECTOR": {
-        setPlayerPosition(position.vector);
-        break;
+    if (position != null) {
+      setPlayerPosition(position);
+    } else if (gameObjectPath != null) {
+      const { gameObjectName } = fromGameObjectPath(gameObjectPath);
+      for (const layer of Object.values(currentRoom.rootComponent.layers)) {
+        if (layer.rootComponent.data.type === "Instances") {
+          for (const instance of layer.rootComponent.data.instances) {
+            if (instance.objectName === gameObjectName) {
+              setPlayerPosition(new Vector(instance.x, instance.y));
+              setDepth(playerEntity, layer.rootComponent.data.depth);
+              return;
+            }
+          }
+        }
       }
-      case "POSITION_OF_GAME_OBJECT": {
-        // find game object, etc
-      }
+
+      throw new Error(
+        `Could not find game object named ${JSON.stringify(gameObjectName)} in room ${JSON.stringify(roomName)}.`,
+      );
+    } else {
+      throw new Error(
+        `RoomRouterApi.goTo didn't have either position or gameObjectPath`,
+      );
     }
   };
 
   const api: RoomRouterApi = {
-    goTo: useCallbackAsCurrent(goTo),
+    goTo: useCallbackAsCurrent(goTo) as RoomRouterApi["goTo"],
     get currentRoom() {
       return currentRoom;
     },
