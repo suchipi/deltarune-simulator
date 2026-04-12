@@ -46,5 +46,19 @@ export default function Root() {
   const router = useNewComponent(() =>
     RoomRouter(player, player.rootComponent.setPosition),
   );
-  router.goTo("/room_krisroom/obj_markerB");
+
+  if (location.hash) {
+    const roomUrlFromHash = location.hash.slice(1); /* remove leading # */
+    try {
+      router.goTo(roomUrlFromHash as any);
+    } catch (err) {
+      console.warn(
+        `Invalid room url from location hash: ${roomUrlFromHash}`,
+        err,
+      );
+      router.goTo("/room_krisroom/obj_markerB");
+    }
+  } else {
+    router.goTo("/room_krisroom/obj_markerB");
+  }
 }

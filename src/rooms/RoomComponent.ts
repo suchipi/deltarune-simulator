@@ -77,12 +77,17 @@ export function RoomLayer(roomName: RoomName, layerJson: RoomLayerJson) {
   };
 }
 
+export function loadRoom(roomName: RoomName) {
+  const roomJson: RoomJson = requireRoomJson(`./${roomName}/room.json`);
+  return roomJson;
+}
+
 export function RoomComponent(roomName: RoomName) {
   useType(RoomComponent);
 
   useEntityName(roomName);
 
-  const roomJson: RoomJson = requireRoomJson(`./${roomName}/room.json`);
+  const roomJson = loadRoom(roomName);
 
   const layers: {
     [key: string]: Entity & { rootComponent: ReturnType<typeof RoomLayer> };

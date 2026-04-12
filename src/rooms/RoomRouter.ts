@@ -6,7 +6,7 @@ import {
   useType,
   Vector,
 } from "@hex-engine/2d";
-import { RoomComponent } from "./RoomComponent";
+import { loadRoom, RoomComponent } from "./RoomComponent";
 import type Player from "../Player";
 import { setDepth } from "../useDepth";
 import { parseRoomUrl, RoomUrl } from "./RoomUrl";
@@ -34,7 +34,9 @@ export function RoomRouter(
 
     const parsedUrl = parseRoomUrl(roomUrl);
 
-    // just for fun
+    // To throw early if it's not a valid room
+    loadRoom(parsedUrl.roomName);
+
     location.hash = roomUrl;
 
     playerEntity.parent?.removeChild(playerEntity);
