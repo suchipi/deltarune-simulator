@@ -12,6 +12,7 @@ import krisLightWorld from "./characters/kris-lightworld.aseprite";
 import { Camera } from "./Camera";
 import { RoomRouter } from "./rooms/RoomRouter";
 import { drawOrderSort } from "./drawOrderSort";
+import { RoomUrl } from "./rooms/RoomUrl";
 
 export default function Root() {
   useType(Root);
@@ -47,18 +48,21 @@ export default function Root() {
     RoomRouter(player, player.rootComponent.setPosition),
   );
 
+  const defaultLocation: RoomUrl = "/room_krisroom/obj_markerB";
+
   if (location.hash) {
-    const roomUrlFromHash = location.hash.slice(1); /* remove leading # */
+    // slice removes leading '#'
+    const roomUrlFromHash = location.hash.slice(1);
     try {
-      router.goTo(roomUrlFromHash as any);
+      router.goTo(roomUrlFromHash as RoomUrl);
     } catch (err) {
       console.warn(
         `Invalid room url from location hash: ${roomUrlFromHash}`,
         err,
       );
-      router.goTo("/room_krisroom/obj_markerB");
+      router.goTo(defaultLocation);
     }
   } else {
-    router.goTo("/room_krisroom/obj_markerB");
+    router.goTo(defaultLocation);
   }
 }
