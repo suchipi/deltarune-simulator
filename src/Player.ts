@@ -10,7 +10,7 @@ import {
 } from "@hex-engine/2d";
 import PlayerBody from "./PlayerBody";
 import PlayerControls from "./PlayerControls";
-import PlayerRenderer from "./PlayerRenderer";
+import PlayerRenderer, { PlayerFacingDirection } from "./PlayerRenderer";
 import { useDepth } from "./useDepth";
 
 export default function Player(
@@ -27,12 +27,17 @@ export default function Player(
   const playerBody = useNewComponent(() =>
     PlayerBody(position, movementVector, shape),
   );
-  useChild(() => PlayerRenderer(asepriteData, movementVector, originOffset));
+  const playerRenderer = useChild(() =>
+    PlayerRenderer(asepriteData, movementVector, originOffset),
+  );
 
   return {
     position: position as ReadOnlyVector,
     setPosition(newPosition: Vector) {
       playerBody.body.setPosition(newPosition);
+    },
+    setFacingDirection(direction: PlayerFacingDirection) {
+      playerRenderer.rootComponent.setFacingDirection(direction);
     },
   };
 }

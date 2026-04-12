@@ -7,18 +7,27 @@ import {
   useUpdate,
   ReadOnlyVector,
 } from "@hex-engine/2d";
-import { roundToEven } from "./utils/round-to-even";
+import { roundToEven } from "./utils/roundToEven";
+
+export type PlayerFacingDirection = "up" | "down" | "left" | "right";
 
 export default function PlayerRenderer(
   asepriteData: AsepriteLoader.Data,
   movementVector: Vector,
-  originOffset: ReadOnlyVector = Vector.ZERO
+  originOffset: ReadOnlyVector = Vector.ZERO,
 ) {
   useType(PlayerRenderer);
 
   const sprite = useNewComponent(() => Aseprite(asepriteData));
 
+  let facingDirection: PlayerFacingDirection | null = null;
+  let isWalking = false;
+
   const animations = {
+    up: {
+      idle: sprite.animations["up-idle"] || sprite.currentAnim,
+      walk: sprite.animations["up-walk"] || sprite.currentAnim,
+    },
     down: {
       idle: sprite.animations["down-idle"] || sprite.currentAnim,
       walk: sprite.animations["down-walk"] || sprite.currentAnim,
@@ -31,10 +40,6 @@ export default function PlayerRenderer(
       idle: sprite.animations["right-idle"] || sprite.currentAnim,
       walk: sprite.animations["right-walk"] || sprite.currentAnim,
     },
-    up: {
-      idle: sprite.animations["up-idle"] || sprite.currentAnim,
-      walk: sprite.animations["up-walk"] || sprite.currentAnim,
-    },
   };
 
   sprite.currentAnim = animations.down.idle;
@@ -45,49 +50,40 @@ export default function PlayerRenderer(
   // physics engine reasons. I need to make this better in hex-engine.
   const bounds = new Vector(
     roundToEven(sprite.data.width),
-    roundToEven(sprite.data.height)
+    roundToEven(sprite.data.height),
   );
 
   useUpdate((delta) => {
-    const animBefore = sprite.currentAnim;
     switch (true) {
       case movementVector.y < 0: {
-        sprite.currentAnim = animations.up.walk;
+        facingDirection = "up";
+        isWalking = true;
         break;
       }
       case movementVector.y > 0: {
-        sprite.currentAnim = animations.down.walk;
+        facingDirection = "down";
+        isWalking = true;
         break;
       }
       case movementVector.x < 0: {
-        sprite.currentAnim = animations.left.walk;
+        facingDirection = "left";
+        isWalking = true;
         break;
       }
       case movementVector.x > 0: {
-        sprite.currentAnim = animations.right.walk;
+        facingDirection = "right";
+        isWalking = true;
         break;
       }
       default: {
-        switch (animBefore) {
-          case animations.up.walk: {
-            sprite.currentAnim = animations.up.idle;
-            break;
-          }
-          case animations.down.walk: {
-            sprite.currentAnim = animations.down.idle;
-            break;
-          }
-          case animations.left.walk: {
-            sprite.currentAnim = animations.left.idle;
-            break;
-          }
-          case animations.right.walk: {
-            sprite.currentAnim = animations.right.idle;
-            break;
-          }
-        }
+        isWalking = false;
       }
     }
+
+    const animBefore = sprite.currentAnim;
+    sprite.currentAnim =
+      animations[facingDirection || "down"][isWalking ? "walk" : "idle"] ??
+      animBefore;
 
     if (sprite.currentAnim !== animBefore) {
       animBefore.pause();
@@ -101,6 +97,18 @@ export default function PlayerRenderer(
       context.translate(originOffset.x, originOffset.y);
       sprite.draw(context);
     },
-    { roundToNearestPixel: true }
+    { roundToNearestPixel: true },
   );
+
+  return {
+    get facingDirection() {
+      return facingDirection;
+    },
+    get isWalking() {
+      return isWalking;
+    },
+    setFacingDirection: (direction: PlayerFacingDirection) => {
+      facingDirection = direction;
+    },
+  };
 }

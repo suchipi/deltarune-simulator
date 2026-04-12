@@ -1,6 +1,7 @@
 import { RoomName } from "./RoomName";
 import { RoomGameObjects } from "./RoomGameObjects";
 import { Vector } from "@hex-engine/2d";
+import { PlayerFacingDirection } from "../PlayerRenderer";
 
 export type RoomUrl = {
   [SomeRoomName in RoomName]:
@@ -77,7 +78,7 @@ export function parseRoomUrl<SomeRoomName extends RoomName>(
   }
 }
 
-export const connections: Partial<Record<RoomUrl, RoomUrl>> = {
-  "/room_krisroom/obj_doorA": "/room_krishallway/obj_markerA",
-  "/room_krishallway/obj_doorB": "/room_krisroom/obj_markerB",
+export type Destination = {
+  roomUrl: RoomUrl;
+  facing: PlayerFacingDirection;
 };

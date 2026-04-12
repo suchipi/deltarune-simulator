@@ -9,11 +9,12 @@ import {
 import { loadRoom, RoomComponent } from "./RoomComponent";
 import type Player from "../Player";
 import { setDepth } from "../useDepth";
-import { parseRoomUrl, RoomUrl } from "./RoomUrl";
+import { Destination, parseRoomUrl, RoomUrl } from "./RoomUrl";
 import { assertNever } from "../utils/assertNever";
+import { PlayerFacingDirection } from "../PlayerRenderer";
 
 export type RoomRouterApi = {
-  goTo(roomUrl: RoomUrl): void;
+  goTo(destination: Destination): void;
   currentRoom:
     | (Entity & { rootComponent: ReturnType<typeof RoomComponent> })
     | null;
@@ -22,6 +23,7 @@ export type RoomRouterApi = {
 export function RoomRouter(
   playerEntity: Entity & { rootComponent: ReturnType<typeof Player> },
   setPlayerPosition: (newPosition: Vector) => void,
+  setPlayerFacing: (facing: PlayerFacingDirection) => void,
 ) {
   useType(RoomRouter);
 
@@ -29,8 +31,9 @@ export function RoomRouter(
     | (Entity & { rootComponent: ReturnType<typeof RoomComponent> })
     | null = null;
 
-  const goTo: RoomRouterApi["goTo"] = function goTo(roomUrl: RoomUrl) {
-    console.log("goTo", roomUrl);
+  const goTo: RoomRouterApi["goTo"] = function goTo(destination: Destination) {
+    const { roomUrl, facing } = destination;
+    console.log("goTo", roomUrl, facing);
 
     const parsedUrl = parseRoomUrl(roomUrl);
 
@@ -73,6 +76,7 @@ export function RoomRouter(
     switch (parsedUrl.type) {
       case "position": {
         setPlayerPosition(parsedUrl.position);
+        setPlayerFacing(facing);
         break;
       }
       case "game-object": {
@@ -81,6 +85,7 @@ export function RoomRouter(
             for (const instance of layer.rootComponent.data.instances) {
               if (instance.objectName === parsedUrl.gameObjectName) {
                 setPlayerPosition(new Vector(instance.x, instance.y));
+                setPlayerFacing(facing);
                 setDepth(playerEntity, layer.rootComponent.data.depth);
                 return;
               }

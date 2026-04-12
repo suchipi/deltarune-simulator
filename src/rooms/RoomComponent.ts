@@ -13,7 +13,9 @@ import { useDepth } from "../useDepth";
 import { GameObject } from "../objects/GameObject";
 import { RoomName } from "./RoomName";
 import { connections } from "./connections";
-import { RoomConnection } from "./RoomConnection";
+import { ManualRoomConnection, RoomConnection } from "./RoomConnection";
+import { Destination, parseRoomUrl, RoomUrl } from "./RoomUrl";
+import { typedEntries } from "../utils/objectHelpers";
 
 const requireRoomJson = require.context(
   "../gamedata/chapter1/rooms",
@@ -43,8 +45,9 @@ export function RoomLayer(roomName: RoomName, layerJson: RoomLayerJson) {
 
   if (layerJson.type === "Instances") {
     for (const instance of layerJson.instances) {
-      const maybeConnection =
-        connections[`/${roomName}/${instance.objectName}`];
+      const maybeConnection = connections[
+        `/${roomName}/${instance.objectName}`
+      ] as Destination | undefined;
 
       let child: (typeof instances)[number];
       if (maybeConnection) {
@@ -67,6 +70,15 @@ export function RoomLayer(roomName: RoomName, layerJson: RoomLayerJson) {
         y: -layerJson.yOffset,
       });
     });
+  }
+
+  for (const [outboundConnection, destination] of typedEntries(
+    connections,
+  ).filter(([key]) => key.startsWith(`/${roomName}/`))) {
+    const parsedUrl = parseRoomUrl(outboundConnection);
+    if (parsedUrl.type === "position") {
+      useChild(() => ManualRoomConnection(parsedUrl.position, destination));
+    }
   }
 
   return {
