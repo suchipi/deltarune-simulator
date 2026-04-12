@@ -7,14 +7,13 @@ import {
   Vector,
 } from "@hex-engine/2d";
 import { RoomComponent } from "./RoomComponent";
-import { RoomName } from "./RoomName";
 import type Player from "../Player";
 import { setDepth } from "../useDepth";
-import { fromGameObjectPath, GameObjectPath } from "./connections";
+import { parseRoomUrl, RoomUrl } from "./RoomUrl";
+import { assertNever } from "../utils/assertNever";
 
 export type RoomRouterApi = {
-  goTo(gameObjectPath: GameObjectPath): void;
-  goTo(roomName: RoomName, position: Vector): void;
+  goTo(roomUrl: RoomUrl): void;
   currentRoom:
     | (Entity & { rootComponent: ReturnType<typeof RoomComponent> })
     | null;
@@ -30,22 +29,13 @@ export function RoomRouter(
     | (Entity & { rootComponent: ReturnType<typeof RoomComponent> })
     | null = null;
 
-  const goTo: RoomRouterApi["goTo"] = function goTo(...args: any) {
-    console.log("goTo", ...args);
+  const goTo: RoomRouterApi["goTo"] = function goTo(roomUrl: RoomUrl) {
+    console.log("goTo", roomUrl);
 
-    let roomName: RoomName;
-    let position: Vector | null = null;
-    let gameObjectPath: GameObjectPath | null = null;
-    if (args.length === 2) {
-      [roomName, position] = args;
-    } else {
-      [gameObjectPath] = args;
-      ({ roomName } = fromGameObjectPath(gameObjectPath!));
-    }
+    const parsedUrl = parseRoomUrl(roomUrl);
 
     // just for fun
-    location.hash =
-      gameObjectPath ?? `/${roomName}/${position?.x},${position?.y}`;
+    location.hash = roomUrl;
 
     playerEntity.parent?.removeChild(playerEntity);
 
@@ -53,7 +43,7 @@ export function RoomRouter(
       currentRoom.destroy();
     }
 
-    currentRoom = useChild(() => RoomComponent(roomName));
+    currentRoom = useChild(() => RoomComponent(parsedUrl.roomName));
 
     const layerWithMainChara = Object.values(
       currentRoom.rootComponent.layers,
@@ -73,34 +63,36 @@ export function RoomRouter(
       layerWithMainChara.addChild(playerEntity);
     } else {
       console.warn(
-        "Couldn't find a layer with obj_mainchara; setting player entity parent to Root entity",
+        "Couldn't find a layer with obj_mainchara; setting player entity parent to room instead of layer",
       );
-      useRootEntity().addChild(playerEntity);
+      currentRoom.addChild(playerEntity);
     }
 
-    if (position != null) {
-      setPlayerPosition(position);
-    } else if (gameObjectPath != null) {
-      const { gameObjectName } = fromGameObjectPath(gameObjectPath);
-      for (const layer of Object.values(currentRoom.rootComponent.layers)) {
-        if (layer.rootComponent.data.type === "Instances") {
-          for (const instance of layer.rootComponent.data.instances) {
-            if (instance.objectName === gameObjectName) {
-              setPlayerPosition(new Vector(instance.x, instance.y));
-              setDepth(playerEntity, layer.rootComponent.data.depth);
-              return;
+    switch (parsedUrl.type) {
+      case "position": {
+        setPlayerPosition(parsedUrl.position);
+        break;
+      }
+      case "game-object": {
+        for (const layer of Object.values(currentRoom.rootComponent.layers)) {
+          if (layer.rootComponent.data.type === "Instances") {
+            for (const instance of layer.rootComponent.data.instances) {
+              if (instance.objectName === parsedUrl.gameObjectName) {
+                setPlayerPosition(new Vector(instance.x, instance.y));
+                setDepth(playerEntity, layer.rootComponent.data.depth);
+                return;
+              }
             }
           }
         }
-      }
 
-      throw new Error(
-        `Could not find game object named ${JSON.stringify(gameObjectName)} in room ${JSON.stringify(roomName)}.`,
-      );
-    } else {
-      throw new Error(
-        `RoomRouterApi.goTo didn't have either position or gameObjectPath`,
-      );
+        throw new Error(
+          `Could not find game object named ${JSON.stringify(parsedUrl.gameObjectName)} in room ${JSON.stringify(parsedUrl.roomName)}.`,
+        );
+      }
+      default: {
+        assertNever(parsedUrl);
+      }
     }
   };
 

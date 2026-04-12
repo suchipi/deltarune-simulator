@@ -8,7 +8,7 @@ import {
   Vector,
 } from "@hex-engine/2d";
 import { RoomInstanceJson } from "./RoomJson";
-import { GameObjectPath } from "./connections";
+import { RoomUrl } from "./RoomUrl";
 import { isPlayer } from "../Player";
 import { useRoomRouter } from "./RoomRouter";
 import { GameObjectDimensions } from "../objects/GameObjectDimensions";
@@ -17,7 +17,7 @@ const fallbackSize = new Vector(4, 4);
 
 export function RoomConnection(
   instance: RoomInstanceJson,
-  destination: GameObjectPath,
+  destination: RoomUrl,
 ) {
   useType(RoomConnection);
 
