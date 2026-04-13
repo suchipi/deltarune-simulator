@@ -15,7 +15,6 @@ export function areFacingDirectionsOpposite(
   directionA: PlayerFacingDirection,
   directionB: PlayerFacingDirection,
 ) {
-  console.log("areFacingDirectionsOpposite", directionA, directionB);
   switch (directionA) {
     case "up": {
       return directionB === "down";
