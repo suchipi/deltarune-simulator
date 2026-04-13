@@ -17,6 +17,7 @@ export function GameObject(instance: RoomInstanceJson) {
 
   if (!objectNames.has(instance.objectName)) {
     return {
+      instance,
       gameObject: useNewComponent(() => DefaultGameObject(instance)),
     };
   } else {
@@ -25,6 +26,7 @@ export function GameObject(instance: RoomInstanceJson) {
     ];
 
     return {
+      instance,
       gameObject: useNewComponent(() => GameObjectComponent(instance)),
     };
   }
