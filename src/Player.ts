@@ -23,7 +23,9 @@ export default function Player(
 
   useDepth(0);
 
-  const { movementVector } = useNewComponent(() => PlayerControls(0.15));
+  const { movementVector, forceClearHeldKey } = useNewComponent(() =>
+    PlayerControls(0.15),
+  );
   const playerBody = useNewComponent(() =>
     PlayerBody(position, movementVector, shape),
   );
@@ -33,12 +35,10 @@ export default function Player(
 
   return {
     position: position as ReadOnlyVector,
-    setPosition(newPosition: Vector) {
-      playerBody.body.setPosition(newPosition);
-    },
-    setFacingDirection(direction: PlayerFacingDirection) {
-      playerRenderer.rootComponent.setFacingDirection(direction);
-    },
+    setPosition: playerBody.body.setPosition.bind(playerBody.body),
+    getFacingDirection: () => playerRenderer.rootComponent.facingDirection,
+    setFacingDirection: playerRenderer.rootComponent.setFacingDirection,
+    forceClearHeldKey,
   };
 }
 

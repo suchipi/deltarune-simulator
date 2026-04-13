@@ -5,6 +5,7 @@ import {
   useUpdate,
   Keyboard,
 } from "@hex-engine/2d";
+import { PlayerFacingDirection } from "./PlayerRenderer";
 
 export default function PlayerControls(speed: number) {
   useType(PlayerControls);
@@ -37,5 +38,15 @@ export default function PlayerControls(speed: number) {
 
   return {
     movementVector,
+    forceClearHeldKey(direction: PlayerFacingDirection) {
+      keyboard.pressed.delete(
+        // eg "down" -> "ArrowDown"
+        `Arrow${toTitleCase(direction)}`,
+      );
+    },
   };
+}
+
+function toTitleCase(str: string) {
+  return `${str.slice(0, 1).toUpperCase()}${str.slice(1)}`;
 }

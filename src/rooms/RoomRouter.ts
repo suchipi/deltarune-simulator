@@ -9,9 +9,9 @@ import {
 import { loadRoom, RoomComponent } from "./RoomComponent";
 import type Player from "../Player";
 import { setDepth } from "../useDepth";
-import { Destination, parseRoomUrl, RoomUrl } from "./RoomUrl";
+import { Destination, parseRoomUrl } from "./RoomUrl";
 import { assertNever } from "../utils/assertNever";
-import { PlayerFacingDirection } from "../PlayerRenderer";
+import { areFacingDirectionsOpposite } from "../PlayerRenderer";
 
 export type RoomRouterApi = {
   goTo(destination: Destination): void;
@@ -22,8 +22,6 @@ export type RoomRouterApi = {
 
 export function RoomRouter(
   playerEntity: Entity & { rootComponent: ReturnType<typeof Player> },
-  setPlayerPosition: (newPosition: Vector) => void,
-  setPlayerFacing: (facing: PlayerFacingDirection) => void,
 ) {
   useType(RoomRouter);
 
@@ -73,10 +71,19 @@ export function RoomRouter(
       currentRoom.addChild(playerEntity);
     }
 
+    const currentFacingDirection =
+      playerEntity.rootComponent.getFacingDirection();
+    if (
+      currentFacingDirection != null &&
+      areFacingDirectionsOpposite(currentFacingDirection, destination.facing)
+    ) {
+      playerEntity.rootComponent.forceClearHeldKey(currentFacingDirection);
+    }
+
     switch (parsedUrl.type) {
       case "position": {
-        setPlayerPosition(parsedUrl.position);
-        setPlayerFacing(facing);
+        playerEntity.rootComponent.setPosition(parsedUrl.position);
+        playerEntity.rootComponent.setFacingDirection(facing);
         break;
       }
       case "game-object": {
@@ -84,8 +91,10 @@ export function RoomRouter(
           if (layer.rootComponent.data.type === "Instances") {
             for (const instance of layer.rootComponent.data.instances) {
               if (instance.objectName === parsedUrl.gameObjectName) {
-                setPlayerPosition(new Vector(instance.x, instance.y));
-                setPlayerFacing(facing);
+                playerEntity.rootComponent.setPosition(
+                  new Vector(instance.x, instance.y),
+                );
+                playerEntity.rootComponent.setFacingDirection(facing);
                 setDepth(playerEntity, layer.rootComponent.data.depth);
                 return;
               }

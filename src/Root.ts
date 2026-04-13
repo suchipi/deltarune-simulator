@@ -44,13 +44,7 @@ export default function Root() {
   //   camera.position.mutateInto(player.rootComponent.position);
   // });
 
-  const router = useNewComponent(() =>
-    RoomRouter(
-      player,
-      player.rootComponent.setPosition,
-      player.rootComponent.setFacingDirection,
-    ),
-  );
+  const router = useNewComponent(() => RoomRouter(player));
 
   const defaultLocation: Destination = {
     roomUrl: "/room_krisroom/obj_markerB",

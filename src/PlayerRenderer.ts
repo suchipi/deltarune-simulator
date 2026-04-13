@@ -11,6 +11,30 @@ import { roundToEven } from "./utils/roundToEven";
 
 export type PlayerFacingDirection = "up" | "down" | "left" | "right";
 
+export function areFacingDirectionsOpposite(
+  directionA: PlayerFacingDirection,
+  directionB: PlayerFacingDirection,
+) {
+  console.log("areFacingDirectionsOpposite", directionA, directionB);
+  switch (directionA) {
+    case "up": {
+      return directionB === "down";
+    }
+    case "down": {
+      return directionB === "up";
+    }
+    case "left": {
+      return directionB === "right";
+    }
+    case "right": {
+      return directionB === "left";
+    }
+    default: {
+      return false;
+    }
+  }
+}
+
 export default function PlayerRenderer(
   asepriteData: AsepriteLoader.Data,
   movementVector: Vector,
