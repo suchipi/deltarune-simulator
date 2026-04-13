@@ -14,7 +14,7 @@ export const connections: Partial<Record<RoomUrl, Destination>> = {
     facing: "down",
   },
   "/room_torhouse/156,128": {
-    roomUrl: "/room_krishallway/252,148",
+    roomUrl: "/room_krishallway/438,128",
     facing: "down",
   },
 };
