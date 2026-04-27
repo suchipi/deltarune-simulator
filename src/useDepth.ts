@@ -18,7 +18,7 @@ export function setDepth(entity: Entity, depth: number) {
   }
 }
 
-export function getDepth(ent: Entity): number {
+export function getDepth(ent: Entity): number | null {
   const depthComponent = ent.getComponent(Depth);
   if (depthComponent != null) {
     return depthComponent.depth;
@@ -32,5 +32,5 @@ export function getDepth(ent: Entity): number {
     }
   }
 
-  return 0;
+  return null;
 }

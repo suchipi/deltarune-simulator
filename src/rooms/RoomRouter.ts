@@ -8,7 +8,7 @@ import {
 } from "@hex-engine/2d";
 import { loadRoom, RoomComponent } from "./RoomComponent";
 import type Player from "../Player";
-import { setDepth } from "../useDepth";
+import { getDepth, setDepth } from "../useDepth";
 import { Destination, parseRoomUrl } from "./RoomUrl";
 import { assertNever } from "../utils/assertNever";
 import { areFacingDirectionsOpposite } from "../PlayerRenderer";
@@ -64,6 +64,10 @@ export function RoomRouter(
 
     if (layerWithMainChara != null) {
       layerWithMainChara.addChild(playerEntity);
+      const layerDepth = getDepth(layerWithMainChara);
+      if (layerDepth != null) {
+        setDepth(playerEntity, layerDepth);
+      }
     } else {
       console.warn(
         "Couldn't find a layer with obj_mainchara; setting player entity parent to room instead of layer",

@@ -32,7 +32,7 @@ const requireLayerPng = require.context(
 export function RoomLayer(roomName: RoomName, layerJson: RoomLayerJson) {
   useType(RoomLayer);
 
-  useDepth(layerJson.depth);
+  useDepth(layerJson.depth < 2000000000 ? layerJson.depth : 0);
 
   useEntityName(layerJson.name);
 

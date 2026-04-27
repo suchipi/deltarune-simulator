@@ -15,7 +15,7 @@ function isDebugOverlay(
 // Debug overlay parts based off of hex-engine internals
 export function drawOrderSort(entities: Array<Entity>): Array<Component> {
   const cameras: Array<Component> = [];
-  const objects: Array<[Component, number]> = [];
+  const objects: Array<[Component, number | null]> = [];
   const debugOverlays: Array<Component> = [];
 
   const storageForIsDebugOverlay = Array.from(useRootEntity().components).find(
@@ -40,15 +40,9 @@ export function drawOrderSort(entities: Array<Entity>): Array<Component> {
     }
   }
 
-  return [
-    ...cameras,
-    ...objects
-      .sort(
-        (a, b) =>
-          // NOTE: GameMakerStudio depth has lower numbers on top
-          b[1] - a[1],
-      )
-      .map((x) => x[0]),
-    ...debugOverlays,
-  ];
+  const objectsSortedByDepth = objects
+    .toSorted((a, b) => Math.abs(a[1] ?? 0) - Math.abs(b[1] ?? 0))
+    .map((x) => x[0]);
+
+  return [...cameras, ...objectsSortedByDepth, ...debugOverlays];
 }
